@@ -12,6 +12,7 @@ export default function MonsterCard({ monster }: Props) {
   return (
     <div className="w-full bg-parchment-background shadow-xl">
       <div className="h-[5px] bg-yellow-600 border-2 border-black" />
+      {/* Expand Button */}
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full justify-between items-center cursor-pointer h-20 px-4 py-2 text-left text-sm font-medium text-indigo-900 hover:bg-slate-200 hover:bg-opacity-40 duration-500 focus:outline-none focus-visible:ring focus-visible:ring-indigo-500/75"
@@ -28,7 +29,7 @@ export default function MonsterCard({ monster }: Props) {
       {/* Start content */}
       <div
         className={`transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-96 opacity-100 px-4 pb-2 pt-4" : "max-h-0 opacity-0"
+          isOpen ? "max-h-96 opacity-100 px-4 pb-2 pt-4" : "max-h-0 opacity-0 overflow-hidden"
         }  text-sm`}
       >
         <MonsterStats monster={monster} />
