@@ -11,8 +11,6 @@ export default async function Page({
   params: { slug: string };
   searchParams?: { [key: string]: string | undefined };
 }) {
-  if (!searchParams) return;
-
   // Add query data to search obeject
   // const { name, tags } = searchParams;
   // let searchObject: { name?: RegExp; tags?: { $all: string[] } } = {};
@@ -27,12 +25,13 @@ export default async function Page({
   // const data = JSON.parse(JSON.stringify(res));
   return (
     <main className="bg-parchment-background bg-tan-main">
-      <Search />
+      home page!
+      {/* <Search />
       home page!
       <section className="lg:col-span-3">
         <div className="px-4">
           <div className="mx-auto rounded-2xl p-2 space-y-5">
-            {/* {res.length > 0 ? (
+            {res.length > 0 ? (
               res.map(item => {
                 return (
                   <Item
@@ -47,10 +46,10 @@ export default async function Page({
               <h1 className="w-full text-center text-4xl pt-5">
                 We couldn&apos;t find any items 🙁
               </h1>
-            )} */}
+            )}
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
