@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "./Search";
 import clientPromise from "@/lib/mongodb";
-import MonsterCard from "./MonsterCard";
+import MonsterCard from "@/components/monster/MonsterCard";
 
 export default async function Page({
   params,

@@ -126,7 +126,7 @@ export default function MonsterStats({ monster }: any) {
       </div>
       <TriangleDivider />
       {/* Traits */}
-      <div>
+      <div className="whitespace-pre-wrap">
         {Traits.map((t: any) => {
           return (
             <div key={t.Name}>

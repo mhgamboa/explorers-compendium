@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import MonsterStats from "./MonsterStats";
+import MonsterStats from "@/components/monster/MonsterStats";
 
 type Props = {
   monster: any;
@@ -18,7 +18,7 @@ export default function MonsterCard({ monster }: Props) {
         className="flex w-full justify-between items-center cursor-pointer h-20 px-4 py-2 text-left text-sm font-medium text-indigo-900 hover:bg-slate-200 hover:bg-opacity-40 duration-500 focus:outline-none focus-visible:ring focus-visible:ring-indigo-500/75"
       >
         <div className="w-full text-red-900 font-extrabold text-3xl">{monster.Name}</div>
-        <div className="space-x-1 flex w-full justify-end">
+        <div className="flex w-full justify-end">
           <ChevronUpIcon
             className={`${
               isOpen ? "rotate-180 transform duration-200" : ""
@@ -29,8 +29,8 @@ export default function MonsterCard({ monster }: Props) {
       {/* Start content */}
       <div
         className={`transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-96 opacity-100 px-4 pb-2 pt-4" : "max-h-0 opacity-0 overflow-hidden"
-        }  text-sm`}
+          isOpen ? "opacity-100 px-4 pb-2 pt-4" : "max-h-0 opacity-0 overflow-hidden"
+        }`}
       >
         <MonsterStats monster={monster} />
       </div>
