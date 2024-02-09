@@ -6,7 +6,7 @@
 // const clientPromise = client.connect();
 
 // export default clientPromise;
-
+export const maxDuration = 60;
 import { MongoClient } from "mongodb";
 
 if (!process.env.MONGODB_URI) {
