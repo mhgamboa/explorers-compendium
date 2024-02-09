@@ -20,9 +20,8 @@ export default function MonsterStats({ monster }: any) {
   } = monster;
 
   return (
-    <div className="">
+    <div>
       <TriangleDivider />
-
       <div className="leading-8">
         <div>
           Armor Class {AC.Value} {AC.Notes} <br />
