@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "./Search";
-import clientPromise from "@/lib/mongodb";
+import clientPromise from "../lib/mongodb";
 import Item from "./Item";
 import Image from "next/image";
 

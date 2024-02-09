@@ -1,0 +1,40 @@
+const calculateXP = (n: string): number => {
+  if (n === "0") return 10;
+  if (n === "1/8") return 25;
+  if (n === "1/4") return 50;
+  if (n === "1/2") return 100;
+  if (n === "1") return 200;
+  if (n === "2") return 450;
+  if (n === "3") return 700;
+  if (n === "4") return 1100;
+  if (n === "5") return 1800;
+  if (n === "6") return 2300;
+  if (n === "7") return 2900;
+  if (n === "8") return 3900;
+  if (n === "9") return 5000;
+  if (n === "10") return 5900;
+  if (n === "11") return 7200;
+  if (n === "12") return 8400;
+  if (n === "13") return 10000;
+  if (n === "14") return 11500;
+  if (n === "15") return 13000;
+  if (n === "16") return 15000;
+  if (n === "17") return 18000;
+  if (n === "18") return 20000;
+  if (n === "19") return 22000;
+  if (n === "20") return 25000;
+  if (n === "21") return 33000;
+  if (n === "22") return 41000;
+  if (n === "23") return 50000;
+  if (n === "24") return 62000;
+  if (n === "25") return 75000;
+  if (n === "26") return 90000;
+  if (n === "27") return 105000;
+  if (n === "28") return 120000;
+  if (n === "29") return 135000;
+  if (n === "30") return 155000;
+
+  return 0;
+};
+
+export default calculateXP;

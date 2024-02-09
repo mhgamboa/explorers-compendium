@@ -1,0 +1,808 @@
+[
+  {
+    "Id": "Aboleth",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Aboleth",
+    "Source": "Monster Manual",
+    "Type": "Large aberration, lawful evil",
+    "HP": {
+      "Value": 135,
+      "Notes": "(18d10+36)"
+    },
+    "AC": {
+      "Value": 17,
+      "Notes": "(natural armor)"
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["10 ft.", "swim 40 ft."],
+    "Abilities": {
+      "Str": 21,
+      "Dex": 9,
+      "Con": 15,
+      "Int": 18,
+      "Wis": 15,
+      "Cha": 18
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 6
+      },
+      {
+        "Name": "Int",
+        "Modifier": 8
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 6
+      }
+    ],
+    "Skills": [
+      {
+        "Name": "History",
+        "Modifier": 12
+      },
+      {
+        "Name": "Perception",
+        "Modifier": 10
+      }
+    ],
+    "Senses": ["darkvision 120 ft."],
+    "Languages": ["Deep Speech", "telepathy 120 ft."],
+    "Challenge": "10",
+    "Traits": [
+      {
+        "Name": "Amphibious",
+        "Content": "The aboleth can breathe air and water.",
+        "Usage": ""
+      },
+      {
+        "Name": "Mucous Cloud",
+        "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+        "Usage": ""
+      },
+      {
+        "Name": "Probing Telepathy",
+        "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+        "Usage": ""
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The aboleth makes three tentacle attacks.",
+        "Usage": ""
+      },
+      {
+        "Name": "Tentacle",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+        "Usage": ""
+      },
+      {
+        "Name": "Tail",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+        "Usage": ""
+      },
+      {
+        "Name": "Enslave (3/day)",
+        "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [
+      {
+        "Name": "Detect",
+        "Content": "The aboleth makes a Wisdom (Perception) check.",
+        "Usage": ""
+      },
+      {
+        "Name": "Tail Swipe",
+        "Content": "The aboleth makes one tail attack.",
+        "Usage": ""
+      },
+      {
+        "Name": "Psychic Drain (Costs 2 Actions)",
+        "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+        "Usage": ""
+      }
+    ],
+    "Description": "Aboleth\n-\n\nAboleths lair in subterranean lakes or the rocky depths of the ocean, often surrounded by the ruins of an ancient, fallen aboleth city. An aboleth spends most of its existence underwater, surfacing occasionally to treat with visitors or deranged worshipers.\n\nLair Actions\n-\n\nWhen fighting inside its lair, an aboleth can invoke the ambient magic to take lair actions. On initiative count 20 (losing initiative ties), the aboleth takes a lair action to cause one of the following effects:\n\n•The aboleth casts phantasmal force (no components required) on any number of creatures it can see within 60 feet of it. While maintaining concentration on this effect, the aboleth can’t take other lair actions. If a target succeeds on the saving throw or if the effect ends for it, the target is immune to the aboleth’s phantasmal force lair action for the next 24 hours, although such a creature can choose to be affected.\n\n•Pools of water within 90 feet of the aboleth surge outward in a grasping tide. Any creature on the ground within 20 feet of such a pool must succeed on a DC 14 Strength saving throw or be pulled up to 20 feet into the water and knocked prone. The aboleth can’t use this lair action again until it has used a different one.\n\n•Water in the aboleth’s lair magically becomes a conduit for the creature’s rage. The aboleth can target any number of creatures it can see in such water within 90 feet of it. A target must succeed on a DC 14 Wisdom saving throw or take 7 (2d6) psychic damage. The aboleth can’t use this lair action again until it has used a different one.\n\nRegional Effects\n-\n\nThe region containing an aboleth’s lair is warped by the creature’s presence, which creates one or more of the following effects:\n\n•Underground surfaces within 1 mile of the aboleth’s lair are slimy and wet and are difficult terrain.\n\n•Water sources within 1 mile of the lair are supernaturally fouled. Enemies of the aboleth that drink such water vomit it within minutes.\n\n•As an action, the aboleth can create an illusory image of itself within 1 mile of the lair. The copy can appear at any location the aboleth has seen before or in any location a creature charmed by the aboleth can currently see. Once created, the image lasts for as long as the aboleth maintains concentration, as if concentrating on a spell. Although the image is intangible, it looks, sounds, and can move like the aboleth. The aboleth can sense, speak, and use telepathy from the image’s position as if present at that position. If the image takes any damage, it disappears.\n\n-\n\nIf the aboleth dies, the first two effects fade over the course of 3d10 days.\n\nBefore the coming of the gods, aboleths lurked in primordial oceans and underground lakes. They reached out with their minds and seized control of the burgeoning life-forms of the mortal realm, making those creatures their slaves. Their dominance made them like gods. Then the true gods appeared, smashing the aboleths’ empire and freeing their slaves.\nAboleths have never forgotten.\n\n**Eternal Memories**. Aboleths have flawless memories. They pass on their knowledge and experience from generation to generation. Thus, the injury of their defeat by the gods remains perfectly preserved in their minds.\n\nAboleths’ minds are treasure troves of ancient lore, recalling moments from prehistory with perfect clarity. They plot patiently and intricately across eons. Few creatures can conceive of the extent of an aboleth’s plan.\n\n**Gods in the Lake**. Aboleths dwell in watery environments, including ocean abysses, deep lakes, and the Elemental Plane of Water. In these domains and the lands that adjoin them, aboleths are like gods, demanding worship and obedience from their subjects. When they consume other creatures, aboleths add the knowledge and experiences of their prey to their eternal memories.\nAboleths use their telepathic powers to read the minds of creatures and know their desires. An aboleth uses this knowledge to gain a creature’s loyalty, promising to fulfill such wants in exchange for obedience. Within its lair, the aboleth can further use its powers to override senses, granting creatures, such as its followers, the illusion of promised rewards.\n\n**Enemies of the Gods**. The aboleths’ fall from power is written in stark clarity on their flawless memories, for aboleths never truly die. If an aboleth’s body is destroyed, its spirit returns to the Elemental Plane of Water, where a new body coalesces for it over days or months.\nUltimately, aboleths dream of overthrowing the gods and regaining control of the world. Aboleths have had untold eons to plot and to prepare their plans for perfect execution.",
+    "Player": "",
+    "Version": "2.5.1",
+    "ImageURL": "https://vignette.wikia.nocookie.net/forgottenrealms/images/5/58/Monster_Manual_5e_-_Aboleth_-p13.jpg/revision/latest?cb=20141109183807",
+    "LastUpdateMs": 1650438543157
+  },
+  {
+    "Id": "Deva",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Deva",
+    "Version": "1.8.2",
+    "Source": "Monster Manual",
+    "Type": "Medium celestial, lawful good",
+    "HP": {
+      "Value": 136,
+      "Notes": "(16d8+64)"
+    },
+    "AC": {
+      "Value": 17,
+      "Notes": "(natural armor)"
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["30 ft.", "fly 90 ft."],
+    "Abilities": {
+      "Str": 18,
+      "Dex": 18,
+      "Con": 18,
+      "Int": 17,
+      "Wis": 20,
+      "Cha": 20
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [
+      "radiant",
+      "bludgeoning",
+      "piercing",
+      "and slashing from nonmagical weapons"
+    ],
+    "DamageImmunities": [],
+    "ConditionImmunities": ["charmed", "exhaustion", "frightened"],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 9
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 9
+      }
+    ],
+    "Skills": [
+      {
+        "Name": "Insight",
+        "Modifier": 9
+      },
+      {
+        "Name": "Perception",
+        "Modifier": 9
+      }
+    ],
+    "Senses": ["darkvision 120 ft."],
+    "Languages": ["all", "telepathy 120 ft."],
+    "Challenge": "10",
+    "Traits": [
+      {
+        "Name": "Angelic Weapons",
+        "Content": "The deva's weapon attacks are magical. When the deva hits with any weapon, the weapon deals an extra 4d8 radiant damage (included in the attack).",
+        "Usage": ""
+      },
+      {
+        "Name": "Innate Spellcasting",
+        "Content": "The deva's spellcasting ability is Charisma (spell save DC 17). The deva can innately cast the following spells, requiring only verbal components: \nAt will: detect evil and good\n1/day each: commune, raise dead",
+        "Usage": ""
+      },
+      {
+        "Name": "Magic Resistance",
+        "Content": "The deva has advantage on saving throws against spells and other magical effects.",
+        "Usage": ""
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The deva makes two melee attacks.",
+        "Usage": ""
+      },
+      {
+        "Name": "Mace",
+        "Content": "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 4) bludgeoning damage plus 18 (4d8) radiant damage.",
+        "Usage": ""
+      },
+      {
+        "Name": "Healing Touch (3/Day)",
+        "Content": "The deva touches another creature. The target magically regains 20 (4d8 + 2) hit points and is freed from any curse, disease, poison, blindness, or deafness.",
+        "Usage": ""
+      },
+      {
+        "Name": "Change Shape",
+        "Content": "The deva magically polymorphs into a humanoid or beast that has a challenge rating equal to or less than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the deva's choice).\nIn a new form, the deva retains its game statistics and ability to speak, but its AC, movement modes, Strength, Dexterity, and special senses are replaced by those of the new form, and it gains any statistics and capabilities (except class features, legendary actions, and lair actions) that the new form has but that it lacks.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Description": "",
+    "Player": "",
+    "ImageURL": "https://i.pinimg.com/originals/0b/3a/6c/0b3a6c81b60be6af35458f8409969327.jpg",
+    "LastUpdateMs": 1650438543163
+  },
+  {
+    "Id": "Planetar",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Planetar",
+    "Version": "1.8.0",
+    "Source": "Monster Manual",
+    "Type": "Large celestial, lawful good",
+    "HP": {
+      "Value": 200,
+      "Notes": "(16d10+112)"
+    },
+    "AC": {
+      "Value": 19,
+      "Notes": "(natural armor)"
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["40 ft.", "fly 120 ft."],
+    "Abilities": {
+      "Str": 24,
+      "Dex": 20,
+      "Con": 24,
+      "Int": 19,
+      "Wis": 22,
+      "Cha": 25
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [
+      "radiant",
+      "bludgeoning",
+      "piercing",
+      "and slashing from nonmagical weapons"
+    ],
+    "DamageImmunities": [],
+    "ConditionImmunities": ["charmed", "exhaustion", "frightened"],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 12
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 11
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 12
+      }
+    ],
+    "Skills": [
+      {
+        "Name": "Perception",
+        "Modifier": 11
+      }
+    ],
+    "Senses": ["truesight 120 ft."],
+    "Languages": ["all", "telepathy 120 ft."],
+    "Challenge": "16",
+    "Traits": [
+      {
+        "Name": "Angelic Weapons",
+        "Content": "The planetar's weapon attacks are magical. When the planetar hits with any weapon, the weapon deals an extra 5d8 radiant damage (included in the attack).",
+        "Usage": ""
+      },
+      {
+        "Name": "Divine Awareness",
+        "Content": "The planetar knows if it hears a lie.",
+        "Usage": ""
+      },
+      {
+        "Name": "Innate Spellcasting",
+        "Content": "The planetar's spellcasting ability is Charisma (spell save DC 20). The planetar can innately cast the following spells, requiring no material components: \nAt will: detect evil and good, invisibility (self only)\n3/day each: blade barrier, dispel evil and good, flame strike, raise dead\n1/day each: commune, control weather, insect plague",
+        "Usage": ""
+      },
+      {
+        "Name": "Magic Resistance",
+        "Content": "The planetar has advantage on saving throws against spells and other magical effects.",
+        "Usage": ""
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The planetar makes two melee attacks.",
+        "Usage": ""
+      },
+      {
+        "Name": "Greatsword",
+        "Content": "Melee Weapon Attack: +12 to hit, reach 5 ft., one target. Hit: 21 (4d6 + 7) slashing damage plus 22 (5d8) radiant damage.",
+        "Usage": ""
+      },
+      {
+        "Name": "Healing Touch (4/Day)",
+        "Content": "The planetar touches another creature. The target magically regains 30 (6d8 + 3) hit points and is freed from any curse, disease, poison, blindness, or deafness.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Description": "",
+    "Player": "",
+    "ImageURL": "",
+    "LastUpdateMs": 1650438543179
+  },
+  {
+    "Id": "Solar",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Solar",
+    "Version": "1.8.0",
+    "Source": "Monster Manual",
+    "Type": "Large celestial, lawful good",
+    "HP": {
+      "Value": 243,
+      "Notes": "(18d10+144)"
+    },
+    "AC": {
+      "Value": 21,
+      "Notes": "(natural armor)"
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["50 ft.", "fly 150 ft."],
+    "Abilities": {
+      "Str": 26,
+      "Dex": 22,
+      "Con": 26,
+      "Int": 25,
+      "Wis": 25,
+      "Cha": 30
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [
+      "radiant",
+      "bludgeoning",
+      "piercing",
+      "and slashing from nonmagical weapons"
+    ],
+    "DamageImmunities": ["necrotic", "poison"],
+    "ConditionImmunities": ["charmed", "exhaustion", "frightened", "poisoned"],
+    "Saves": [
+      {
+        "Name": "Int",
+        "Modifier": 14
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 14
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 17
+      }
+    ],
+    "Skills": [
+      {
+        "Name": "Perception",
+        "Modifier": 14
+      }
+    ],
+    "Senses": ["truesight 120 ft."],
+    "Languages": ["all", "telepathy 120 ft."],
+    "Challenge": "21",
+    "Traits": [
+      {
+        "Name": "Angelic Weapons",
+        "Content": "The solar's weapon attacks are magical. When the solar hits with any weapon, the weapon deals an extra 6d8 radiant damage (included in the attack).",
+        "Usage": ""
+      },
+      {
+        "Name": "Divine Awareness",
+        "Content": "The solar knows if it hears a lie.",
+        "Usage": ""
+      },
+      {
+        "Name": "Innate Spellcasting",
+        "Content": "The solar's spell casting ability is Charisma (spell save DC 25). It can innately cast the following spells, requiring no material components: \nAt will: detect evil and good, invisibility (self only)\n3/day each: blade barrier, dispel evil and good, resurrection\n1/day each: commune, control weather",
+        "Usage": ""
+      },
+      {
+        "Name": "Magic Resistance",
+        "Content": "The solar has advantage on saving throws against spells and other magical effects.",
+        "Usage": ""
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The solar makes two greatsword attacks.",
+        "Usage": ""
+      },
+      {
+        "Name": "Greatsword",
+        "Content": "Melee Weapon Attack: +15 to hit, reach 5 ft., one target. Hit: 22 (4d6 + 8) slashing damage plus 27 (6d8) radiant damage.",
+        "Usage": ""
+      },
+      {
+        "Name": "Slaying Longbow",
+        "Content": "Ranged Weapon Attack: +13 to hit, range 150/600 ft., one target. Hit: 15 (2d8 + 6) piercing damage plus 27 (6d8) radiant damage. If the target is a creature that has 190 hit points or fewer, it must succeed on a DC 15 Constitution saving throw or die.",
+        "Usage": ""
+      },
+      {
+        "Name": "Flying Sword",
+        "Content": "The solar releases its greatsword to hover magically in an unoccupied space within 5 ft. of it. If the solar can see the sword, the solar can mentally command it as a bonus action to fly up to 50 ft. and either make one attack against a target or return to the solar's hands. If the hovering sword is targeted by any effect, the solar is considered to be holding it. The hovering sword falls if the solar dies.",
+        "Usage": ""
+      },
+      {
+        "Name": "Healing Touch (4/Day)",
+        "Content": "The solar touches another creature. The target magically regains 40 (8d8 + 4) hit points and is freed from any curse, disease, poison, blindness, or deafness.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [
+      {
+        "Name": "Teleport",
+        "Content": "The solar magically teleports, along with any equipment it is wearing or carrying, up to 120 ft. to an unoccupied space it can see.",
+        "Usage": ""
+      },
+      {
+        "Name": "Searing Burst (Costs 2 Actions)",
+        "Content": "The solar emits magical, divine energy. Each creature of its choice in a 10 -foot radius must make a DC 23 Dexterity saving throw, taking 14 (4d6) fire damage plus 14 (4d6) radiant damage on a failed save, or half as much damage on a successful one.",
+        "Usage": ""
+      },
+      {
+        "Name": "Blinding Gaze (Costs 3 Actions)",
+        "Content": "The solar targets one creature it can see within 30 ft. of it. If the target can see it, the target must succeed on a DC 15 Constitution saving throw or be blinded until magic such as the lesser restoration spell removes the blindness.",
+        "Usage": ""
+      }
+    ],
+    "Description": "",
+    "Player": "",
+    "ImageURL": "",
+    "LastUpdateMs": 1650438543167
+  },
+  {
+    "Id": "0x6777v0",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Animated Armor",
+    "Source": "Monster Manual",
+    "Type": "Medium construct, unaligned",
+    "HP": {
+      "Value": 33,
+      "Notes": "(6d8+6)"
+    },
+    "AC": {
+      "Value": 18,
+      "Notes": "(natural armor)"
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["25 ft."],
+    "Abilities": {
+      "Str": 14,
+      "Dex": 11,
+      "Con": 13,
+      "Int": 1,
+      "Wis": 3,
+      "Cha": 1
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": ["poison", "psychic"],
+    "ConditionImmunities": [
+      "blinded",
+      "charmed",
+      "deafened",
+      "exhaustion",
+      "frightened",
+      "paralyzed",
+      "petrified",
+      "poisoned"
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": ["blindsight 60 ft. (blind beyond this radius)"],
+    "Languages": [],
+    "Challenge": "1",
+    "Traits": [
+      {
+        "Name": "Antimagic Susceptibility",
+        "Content": "The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.",
+        "Usage": ""
+      },
+      {
+        "Name": "False Appearance",
+        "Content": "While the armor remains motionless, it is indistinguishable from a normal suit of armor.",
+        "Usage": ""
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The armor makes two melee attacks.",
+        "Usage": ""
+      },
+      {
+        "Name": "Slam",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Description": "",
+    "Player": "",
+    "Version": "1.7.4",
+    "ImageURL": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/8/429/1000/1000/636306156895834255.jpeg",
+    "LastUpdateMs": 1650438543159
+  },
+  {
+    "Id": "Flying_Sword",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Flying Sword",
+    "Version": "1.8.0",
+    "Source": "Monster Manual",
+    "Type": "Small construct, unaligned",
+    "HP": {
+      "Value": 17,
+      "Notes": "(5d6)"
+    },
+    "AC": {
+      "Value": 17,
+      "Notes": "(natural armor)"
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["0 ft.", "fly 50 ft. It can hover."],
+    "Abilities": {
+      "Str": 12,
+      "Dex": 15,
+      "Con": 11,
+      "Int": 1,
+      "Wis": 5,
+      "Cha": 1
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": ["poison", "psychic"],
+    "ConditionImmunities": [
+      "blinded",
+      "charmed",
+      "deafened",
+      "frightened",
+      "paralyzed",
+      "petrified",
+      "poisoned"
+    ],
+    "Saves": [
+      {
+        "Name": "Dex",
+        "Modifier": 4
+      }
+    ],
+    "Skills": [],
+    "Senses": ["blindsight 60 ft. (blind beyond this radius)"],
+    "Languages": [],
+    "Challenge": "1/4",
+    "Traits": [
+      {
+        "Name": "Antimagic Susceptibility",
+        "Content": "The sword is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the sword must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.",
+        "Usage": ""
+      },
+      {
+        "Name": "False Appearance",
+        "Content": "While the sword remains motionless and isn't flying, it is indistinguishable from a normal sword.",
+        "Usage": ""
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Longsword",
+        "Content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d8 + 1) slashing damage.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Description": "",
+    "Player": "",
+    "ImageURL": "",
+    "LastUpdateMs": 1650438543164
+  },
+  {
+    "Id": "Rug_of_Smothering",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Rug of Smothering",
+    "Version": "1.8.0",
+    "Source": "Monster Manual",
+    "Type": "Large construct, unaligned",
+    "HP": {
+      "Value": 33,
+      "Notes": "(6d10)"
+    },
+    "AC": {
+      "Value": 12,
+      "Notes": ""
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["10 ft."],
+    "Abilities": {
+      "Str": 17,
+      "Dex": 14,
+      "Con": 10,
+      "Int": 1,
+      "Wis": 3,
+      "Cha": 1
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": ["poison", "psychic"],
+    "ConditionImmunities": [
+      "blinded",
+      "charmed",
+      "deafened",
+      "frightened",
+      "paralyzed",
+      "petrified",
+      "poisoned"
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": ["blindsight 60 ft. (blind beyond this radius)"],
+    "Languages": [],
+    "Challenge": "2",
+    "Traits": [
+      {
+        "Name": "Antimagic Susceptibility",
+        "Content": "The rug is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the rug must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.",
+        "Usage": ""
+      },
+      {
+        "Name": "Damage Transfer",
+        "Content": "While it is grappling a creature, the rug takes only half the damage dealt to it, and the creature grappled by the rug takes the other half.",
+        "Usage": ""
+      },
+      {
+        "Name": "False Appearance",
+        "Content": "While the rug remains motionless, it is indistinguishable from a normal rug.",
+        "Usage": ""
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Smother",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one Medium or smaller creature. Hit: The creature is grappled (escape DC 13). Until this grapple ends, the target is restrained, blinded, and at risk of suffocating, and the rug can't smother another target. In addition, at the start of each of the target's turns, the target takes 10 (2d6 + 3) bludgeoning damage.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Description": "",
+    "Player": "",
+    "ImageURL": "",
+    "LastUpdateMs": 1650438543167
+  },
+  {
+    "Id": "Ankheg",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Ankheg",
+    "Version": "2.6.4",
+    "Source": "Monster Manual",
+    "Type": "Large monstrosity, unaligned",
+    "HP": {
+      "Value": 39,
+      "Notes": "(6d10+6)"
+    },
+    "AC": {
+      "Value": 14,
+      "Notes": "(natural armor, 11 while prone)"
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["30 ft.", "burrow 10 ft."],
+    "Abilities": {
+      "Str": 17,
+      "Dex": 11,
+      "Con": 13,
+      "Int": 1,
+      "Wis": 13,
+      "Cha": 6
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": ["darkvision 60 ft.", "tremorsense 60 ft."],
+    "Languages": [],
+    "Challenge": "2",
+    "Traits": [],
+    "Actions": [
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage plus 3 (1d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 13). Until this grapple ends, the ankheg can bite only the grappled creature and has advantage on attack rolls to do so.",
+        "Usage": ""
+      },
+      {
+        "Name": "Acid Spray (Recharge 6)",
+        "Content": "The ankheg spits acid in a line that is 30 ft. long and 5 ft. wide, provided that it has no creature grappled. Each creature in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) acid damage on a failed save, or half as much damage on a successful one.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Description": "",
+    "Player": "",
+    "ImageURL": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/161/1000/1000/636252759871983921.jpeg",
+    "LastUpdateMs": 1650438543158
+  },
+  {
+    "Id": "Azer",
+    "Author_Id": { "$oid": "65a9a41638b420aa9492e037" },
+    "Name": "Azer",
+    "Version": "1.5.6",
+    "Source": "",
+    "Type": "M elemental, monster manual, lawful neutral",
+    "HP": {
+      "Value": 39,
+      "Notes": "(6d8+12)"
+    },
+    "AC": {
+      "Value": 17,
+      "Notes": "(natural armor, shield)"
+    },
+    "InitiativeModifier": 0,
+    "InitiativeAdvantage": false,
+    "Speed": ["30 ft."],
+    "Abilities": {
+      "Str": 17,
+      "Dex": 12,
+      "Con": 15,
+      "Int": 12,
+      "Wis": 13,
+      "Cha": 10
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": ["fire", "poison"],
+    "ConditionImmunities": ["poisoned"],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 4
+      }
+    ],
+    "Skills": [],
+    "Senses": [],
+    "Languages": ["Ignan"],
+    "Challenge": "2",
+    "Traits": [
+      {
+        "Name": "Heated Body",
+        "Content": "A creature that touches the azer or hits it with a melee attack while within 5 ft. of it takes 5 (1d10) fire damage.",
+        "Usage": ""
+      },
+      {
+        "Name": "Heated Weapons",
+        "Content": "When the azer hits with a metal melee weapon, it deals an extra 3 (1d6) fire damage (included in the attack).",
+        "Usage": ""
+      },
+      {
+        "Name": "Illumination",
+        "Content": "The azer sheds bright light in a 10-foot radius and dim light for an additional 10 ft..",
+        "Usage": ""
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Warhammer",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) bludgeoning damage, or 8 (1d10 + 3) bludgeoning damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.",
+        "Usage": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Description": "",
+    "Player": "",
+    "ImageURL": "",
+    "LastUpdateMs": 1650438543158
+  }
+]

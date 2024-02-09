@@ -8,10 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        tan: { main: "#EEE5CE", sub: "#FDF1DC" },
+      },
       backgroundImage: {
+        "parchment-background": "url(/assets/parchmentBackground.jpg)",
+        monster: "url(/assets/monsterBorder.jpg)",
+        triangle: "/assets/redTriangle.png",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
