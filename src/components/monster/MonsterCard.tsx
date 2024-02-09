@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import MonsterStats from "@/components/monster/MonsterStats";
+import MonsterStats from "@/components/monster/monsterStats/MonsterStats";
 
 type Props = {
   monster: any;
