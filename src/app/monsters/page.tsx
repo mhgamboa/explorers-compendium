@@ -19,7 +19,7 @@ export default async function Page({
   // typeof tags === "string" && (searchObject.tags = { $all: tags.split(",") });
 
   const client = await clientPromise;
-  const db = client.db("content");
+  const db = client.db("5e");
   const collection = db.collection("monsters");
   const res = await collection.find(searchObject).limit(50).toArray();
   const data = JSON.parse(JSON.stringify(res));
