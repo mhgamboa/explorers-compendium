@@ -204,7 +204,7 @@
     "Description": "",
     "Tier_Id": [{ "$oid": "65cba30a26f770b151e17f20" }],
     "ImageURL": "https://i.pinimg.com/originals/0b/3a/6c/0b3a6c81b60be6af35458f8409969327.jpg",
-    "Creator": { "name": "Wizards of  the Coast", "Website": "https://company.wizards.com/" },
+    "Creator": { "name": "Wizards of the Coast", "Website": "https://company.wizards.com/" },
     "Tags": ["Angel"]
   },
   {
@@ -299,7 +299,7 @@
     "Description": "",
     "Tier_Id": [{ "$oid": "65cba42526f770b151e17f22" }],
     "ImageURL": "",
-    "Creator": { "name": "Wizards of  the Coast", "Website": "https://company.wizards.com/" },
+    "Creator": { "name": "Wizards of the Coast", "Website": "https://company.wizards.com/" },
     "Tags": ["Angel"]
   },
   {
@@ -415,7 +415,7 @@
     "Description": "",
     "Tier_Id": [{ "$oid": "65cba42526f770b151e17f22" }],
     "ImageURL": "",
-    "Creator": { "name": "Wizards of  the Coast", "Website": "https://company.wizards.com/" },
+    "Creator": { "name": "Wizards of the Coast", "Website": "https://company.wizards.com/" },
     "Tags": ["Angel"]
   },
   {
@@ -484,7 +484,7 @@
     "Tier_Id": [{ "$oid": "65cba42526f770b151e17f22" }],
     "Version": "1.7.4",
     "ImageURL": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/8/429/1000/1000/636306156895834255.jpeg",
-    "Creator": { "name": "Wizards of  the Coast", "Website": "https://company.wizards.com/" },
+    "Creator": { "name": "Wizards of the Coast", "Website": "https://company.wizards.com/" },
     "Tags": ["Animated Objects"]
   },
   {
@@ -553,7 +553,7 @@
     "Description": "",
     "Tier_Id": [{ "$oid": "65cba42526f770b151e17f22" }],
     "ImageURL": "",
-    "Creator": { "name": "Wizards of  the Coast", "Website": "https://company.wizards.com/" },
+    "Creator": { "name": "Wizards of the Coast", "Website": "https://company.wizards.com/" },
     "Tags": ["Animated Objects"]
   },
   {
@@ -621,7 +621,7 @@
     "Description": "",
     "Tier_Id": [{ "$oid": "65cba42526f770b151e17f22" }],
     "ImageURL": "",
-    "Creator": { "name": "Wizards of  the Coast", "Website": "https://company.wizards.com/" },
+    "Creator": { "name": "Wizards of the Coast", "Website": "https://company.wizards.com/" },
     "Tags": ["Animated Objects"]
   },
   {
@@ -672,7 +672,7 @@
     "Description": "",
     "Tier_Id": [{ "$oid": "65cba42526f770b151e17f22" }],
     "ImageURL": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/161/1000/1000/636252759871983921.jpeg",
-    "Creator": { "name": "Wizards of  the Coast", "Website": "https://company.wizards.com/" },
+    "Creator": { "name": "Wizards of the Coast", "Website": "https://company.wizards.com/" },
     "Tags": ["Forrest"]
   },
   {
@@ -737,7 +737,7 @@
     "Description": "",
     "Tier_Id": [{ "$oid": "65cba42526f770b151e17f22" }],
     "ImageURL": "",
-    "Creator": { "name": "Wizards of  the Coast", "Website": "https://company.wizards.com/" },
+    "Creator": { "name": "Wizards of the Coast", "Website": "https://company.wizards.com/" },
     "Tags": []
   }
 ]

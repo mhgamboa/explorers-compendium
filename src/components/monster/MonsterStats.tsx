@@ -2,8 +2,12 @@ import React from "react";
 import TriangleDivider from "./TriangleDivider";
 import calculateModifier from "@/lib/calculateAbilityScore";
 import calculateXP from "@/lib/calculateXP";
+import { useAtomValue } from "jotai";
+import { LoggedInAtom } from "@/atoms/atoms";
 
 export default function MonsterStats({ monster }: any) {
+  const loggedIn = useAtomValue(LoggedInAtom);
+
   const {
     AC,
     HP,
@@ -22,7 +26,25 @@ export default function MonsterStats({ monster }: any) {
     Actions,
     Reactions,
     LegendaryActions,
+    Creator,
   } = monster;
+
+  if (!loggedIn && Creator.name !== "Wizards of the Coast")
+    return (
+      <div className="py-4">
+        <h3 className="text-lg font-medium">
+          You must be logged in and be a subscriber of{" "}
+          <span className="text-red-900">{Creator.name}&apos;s</span> Patreon to view these
+          stats!
+        </h3>
+        <p className="pt-10">
+          You can subscribe to their Patreon{" "}
+          <a className="text-red-900" href={Creator.Patreon} target="_blank">
+            here
+          </a>
+        </p>
+      </div>
+    );
 
   return (
     <div>

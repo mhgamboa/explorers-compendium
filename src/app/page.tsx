@@ -36,7 +36,7 @@ export default async function Page({
       <main>
         <Search />
         <section className="lg:col-span-3 px-4">
-          <div className="mx-auto rounded-2xl p-2 space-y-5 max-w-5xl">
+          <div className="mx-auto rounded-2xl p-2 pt-10 space-y-5 max-w-5xl">
             {monsterData.length > 0 ? (
               monsterData.map((m: any) => <MonsterCard key={m._id} monster={m} />)
             ) : (
