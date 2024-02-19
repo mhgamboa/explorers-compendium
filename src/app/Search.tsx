@@ -34,7 +34,7 @@ export default function SearchMagicItems() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto px-4 py-6 bg-gray-300">
       <form
         className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8"
         onSubmit={handleSubmit}

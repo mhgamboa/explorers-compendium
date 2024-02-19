@@ -3,6 +3,7 @@ import Search from "./Search";
 import clientPromise from "@/lib/mongodb";
 import MonsterCard from "@/components/monster/MonsterCard";
 import { dbQueryType } from "./data";
+import Header from "@/components/Header";
 
 export default async function Page({
   params,
@@ -30,19 +31,22 @@ export default async function Page({
   // console.log(tagsRes);
 
   return (
-    <main>
-      <Search />
-      <section className="lg:col-span-3 px-4">
-        <div className="mx-auto rounded-2xl p-2 space-y-5 max-w-5xl">
-          {monsterData.length > 0 ? (
-            monsterData.map((m: any) => <MonsterCard key={m._id} monster={m} />)
-          ) : (
-            <h1 className="w-full text-center text-4xl pt-5">
-              We couldn&apos;t find any items 🙁
-            </h1>
-          )}
-        </div>
-      </section>
-    </main>
+    <>
+      <Header />
+      <main>
+        <Search />
+        <section className="lg:col-span-3 px-4">
+          <div className="mx-auto rounded-2xl p-2 space-y-5 max-w-5xl">
+            {monsterData.length > 0 ? (
+              monsterData.map((m: any) => <MonsterCard key={m._id} monster={m} />)
+            ) : (
+              <h1 className="w-full text-center text-4xl pt-5">
+                We couldn&apos;t find any items 🙁
+              </h1>
+            )}
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
