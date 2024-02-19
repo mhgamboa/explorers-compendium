@@ -27,23 +27,33 @@ export default function MonsterCard({ monster }: Props) {
         </div>
         <div className="flex w-full items-center justify-between">
           {/* Name & Links */}
-          <div className="flex flex-col justify-between items-center space-y-2 group-hover:animate-pulse">
+          <div className="flex flex-col justify-between items-center space-y-2">
             <a
               onClick={stopPropagation}
               target="_blank"
               href={monster.Creator.Website}
-              className="min-w-fit text-xs sm:text-base"
+              className="min-w-fit text-xs sm:text-base hover:animate-pulse"
             >
               {monster.Creator.name}
             </a>
             <div className="flex w-full justify-around">
               {monster.Creator.Patreon && (
-                <a onClick={stopPropagation} href={monster.Creator.Patreon} target="_blank">
+                <a
+                  className="hover:animate-pulse"
+                  onClick={stopPropagation}
+                  href={monster.Creator.Patreon}
+                  target="_blank"
+                >
                   <FaPatreon className="text-orange-500" />
                 </a>
               )}
               {monster.Creator.Website && (
-                <a onClick={stopPropagation} href={monster.Creator.Website} target="_blank">
+                <a
+                  className="hover:animate-pulse"
+                  onClick={stopPropagation}
+                  href={monster.Creator.Website}
+                  target="_blank"
+                >
                   <SlGlobe />
                 </a>
               )}
