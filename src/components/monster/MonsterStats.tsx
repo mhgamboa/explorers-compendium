@@ -1,5 +1,5 @@
 import React from "react";
-import TriangleDivider from "../TriangleDivider";
+import TriangleDivider from "./TriangleDivider";
 import calculateModifier from "@/lib/calculateAbilityScore";
 import calculateXP from "@/lib/calculateXP";
 

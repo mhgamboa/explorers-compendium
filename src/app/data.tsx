@@ -54,3 +54,5 @@ export const filters = [
     options: [{ value: "wotc", label: "Wizard's of the Coast", checked: false }],
   },
 ];
+
+export type dbQueryType = { Name?: RegExp; Tags?: { $all: string[] } };
