@@ -20,7 +20,7 @@ export default function Header() {
               : "bg-red-700 hover:bg-red-800 focus:ring-red-300"
           }`}
         >
-          Fake Patreon Log In Button
+          Fake Patreon Log In Button ({loggedIn ? "Logged In" : "Logged Out"})
         </a>
       </nav>
     </header>
