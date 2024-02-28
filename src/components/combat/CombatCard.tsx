@@ -3,12 +3,16 @@ import TriangleDivider from "@/components/ui/TriangleDivider";
 import calculateModifier from "@/lib/calculateAbilityScore";
 import calculateXP from "@/lib/calculateXP";
 import { useAtomValue } from "jotai";
+import { combatantsAtom, indexAtom } from "@/atoms/combat";
 import { LoggedInAtom } from "@/atoms/atoms";
 
-export default function MonsterStats({ monster }: any) {
-  const loggedIn = useAtomValue(LoggedInAtom);
+export default function CombatCard() {
+  const combatants = useAtomValue(combatantsAtom);
+  const index = useAtomValue(indexAtom);
 
+  const monster = combatants.monsterData[index];
   const {
+    Name,
     AC,
     HP,
     Speed,
@@ -29,25 +33,9 @@ export default function MonsterStats({ monster }: any) {
     Creator,
   } = monster;
 
-  if (!loggedIn && Creator.name !== "Wizards of the Coast")
-    return (
-      <div className="py-4">
-        <h3 className="text-lg font-medium">
-          You must be logged in and be a subscriber of{" "}
-          <span className="text-red-900">{Creator.name}&apos;s</span> Patreon to view these
-          stats!
-        </h3>
-        <p className="pt-10">
-          You can subscribe to their Patreon{" "}
-          <a className="text-red-900" href={Creator.Patreon} target="_blank">
-            here
-          </a>
-        </p>
-      </div>
-    );
-
   return (
     <div>
+      <div className="text-red-900 text-2xl pb-2 font-bold">{Name}</div>
       <TriangleDivider />
       {/* AC, HP, Speed */}
       <div className="text-red-900 py-2">
@@ -62,7 +50,7 @@ export default function MonsterStats({ monster }: any) {
       <TriangleDivider />
       {/* Ability Scores */}
       <div className="w-full flex text-red-900 py-2">
-        {Object.keys(Abilities).map((a: string) => {
+        {Object.keys(Abilities).map((a: any) => {
           const abilityScore = Abilities[a];
           return (
             <div key={a} className="flex flex-col w-1/6 items-center">
