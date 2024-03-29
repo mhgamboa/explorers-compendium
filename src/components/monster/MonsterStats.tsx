@@ -1,12 +1,12 @@
 import React from "react";
 import TriangleDivider from "@/components/ui/TriangleDivider";
-import calculateModifier from "@/lib/calculateAbilityScore";
-import calculateXP from "@/lib/calculateXP";
-import { useAtomValue } from "jotai";
-import { LoggedInAtom } from "@/atoms/atoms";
+import calculateModifier from "@/lib/monster/calculateAbilityScore";
+import calculateXP from "@/lib/monster/calculateXP";
+// import { useAtomValue } from "jotai";
+// import { LoggedInAtom } from "@/atoms/atoms";
 
 export default function MonsterStats({ monster }: any) {
-  const loggedIn = useAtomValue(LoggedInAtom);
+  // const loggedIn = useAtomValue(LoggedInAtom);
 
   const {
     AC,
@@ -29,28 +29,27 @@ export default function MonsterStats({ monster }: any) {
     Creator,
   } = monster;
 
-  if (!loggedIn && Creator.name !== "Wizards of the Coast")
-    return (
-      <div className="py-4">
-        <h3 className="text-lg font-medium">
-          You must be logged in and be a subscriber of{" "}
-          <span className="text-red-900">{Creator.name}&apos;s</span> Patreon to view these
-          stats!
-        </h3>
-        <p className="pt-10">
-          You can subscribe to their Patreon{" "}
-          <a className="text-red-900" href={Creator.Patreon} target="_blank">
-            here
-          </a>
-        </p>
-      </div>
-    );
+  return (
+    <div className="py-4">
+      <h3 className="text-lg font-medium">
+        You must be logged in and be a subscriber of{" "}
+        <span className="text-red-900">{Creator.name}&apos;s</span> Patreon to
+        view these stats!
+      </h3>
+      <p className="pt-10">
+        You can subscribe to their Patreon{" "}
+        <a className="text-red-900" href={Creator.Patreon} target="_blank">
+          here
+        </a>
+      </p>
+    </div>
+  );
 
   return (
     <div>
       <TriangleDivider />
       {/* AC, HP, Speed */}
-      <div className="text-red-900 py-2">
+      <div className="py-2 text-red-900">
         <div>
           Armor Class {AC.Value} {AC.Notes} <br />
         </div>
@@ -61,11 +60,11 @@ export default function MonsterStats({ monster }: any) {
       </div>
       <TriangleDivider />
       {/* Ability Scores */}
-      <div className="w-full flex text-red-900 py-2">
+      <div className="flex w-full py-2 text-red-900">
         {Object.keys(Abilities).map((a: string) => {
           const abilityScore = Abilities[a];
           return (
-            <div key={a} className="flex flex-col w-1/6 items-center">
+            <div key={a} className="flex w-1/6 flex-col items-center">
               <div className="font-bold">{a}</div>
               <div>
                 <span>{abilityScore}</span> ({calculateModifier(abilityScore)})
@@ -77,7 +76,7 @@ export default function MonsterStats({ monster }: any) {
       <TriangleDivider />
 
       {/* Vulnerabilities/Resistances/Immunities, Saves, Skills, Senses, Languages, CR */}
-      <div className="w-full flex flex-col text-red-900 leading-8 py-2">
+      <div className="flex w-full flex-col py-2 leading-8 text-red-900">
         <div id="vulnerabilities">
           {DamageVulnerabilities.length >= 1 && (
             <>
@@ -97,7 +96,8 @@ export default function MonsterStats({ monster }: any) {
         <div className="damageImmunities text-red-900">
           {DamageImmunities.length >= 1 && (
             <>
-              <span className="font-bold">Damage Immunities</span> {DamageImmunities.join(", ")}
+              <span className="font-bold">Damage Immunities</span>{" "}
+              {DamageImmunities.join(", ")}
             </>
           )}
         </div>
@@ -135,22 +135,23 @@ export default function MonsterStats({ monster }: any) {
         <div className="languages">
           {Languages.length >= 1 && (
             <>
-              <span className="font-bold">Languages</span> {Languages.join(", ")}
+              <span className="font-bold">Languages</span>{" "}
+              {Languages.join(", ")}
             </>
           )}
         </div>
         <div className="challenge">
           {
             <>
-              <span className="font-bold">Challenge</span> {Challenge} ({calculateXP(Challenge)}{" "}
-              XP)
+              <span className="font-bold">Challenge</span> {Challenge} (
+              {calculateXP(Challenge)} XP)
             </>
           }
         </div>
       </div>
       <TriangleDivider />
       {/* Traits */}
-      <div className="whitespace-pre-wrap space-y-1 py-2">
+      <div className="space-y-1 whitespace-pre-wrap py-2">
         {Traits.map((t: any) => {
           return (
             <div key={t.Name}>
@@ -166,7 +167,8 @@ export default function MonsterStats({ monster }: any) {
         {Actions.map((a: any) => {
           return (
             <div className="pt-4" key={a.Name}>
-              <span className="font-semibold italic">{a.Name}. </span> {a.Content}
+              <span className="font-semibold italic">{a.Name}. </span>{" "}
+              {a.Content}
             </div>
           );
         })}
@@ -179,7 +181,8 @@ export default function MonsterStats({ monster }: any) {
           {Reactions.map((a: any) => {
             return (
               <div className="pt-4" key={a.Name}>
-                <span className="font-semibold italic">{a.Name}. </span> {a.Content}
+                <span className="font-semibold italic">{a.Name}. </span>{" "}
+                {a.Content}
               </div>
             );
           })}
@@ -188,12 +191,15 @@ export default function MonsterStats({ monster }: any) {
       {/* Reactions */}
       {LegendaryActions.length > 0 && (
         <div id="actions" className="py-2">
-          <h3 className="text-2xl font-light text-red-900">Legendary Actions</h3>
+          <h3 className="text-2xl font-light text-red-900">
+            Legendary Actions
+          </h3>
           <hr className="border-black" />
           {LegendaryActions.map((a: any) => {
             return (
               <div className="pt-4" key={a.Name}>
-                <span className="font-semibold italic">{a.Name}. </span> {a.Content}
+                <span className="font-semibold italic">{a.Name}. </span>{" "}
+                {a.Content}
               </div>
             );
           })}

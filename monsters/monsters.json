@@ -1,0 +1,169 @@
+[
+  {
+    "name": "Animated Armor",
+    "source": "5e OGL",
+    "type": "Medium construct, unaligned",
+    "hp": {
+      "value": 33,
+      "notes": "(6d8+6)"
+    },
+    "ac": {
+      "value": 18,
+      "notes": "(natural armor)"
+    },
+    "speed": ["25 ft."],
+    "abilities": {
+      "str": 14,
+      "dex": 11,
+      "con": 13,
+      "int": 1,
+      "wis": 3,
+      "cha": 1
+    },
+    "damageVulnerabilities": [],
+    "damageResistances": [],
+    "damageImmunities": ["poison", "psychic"],
+    "conditionImmunities": [
+      "blinded",
+      "charmed",
+      "deafened",
+      "exhaustion",
+      "frightened",
+      "paralyzed",
+      "petrified",
+      "poisoned"
+    ],
+    "saves": [],
+    "skills": [],
+    "senses": ["blindsight 60 ft. (blind beyond this radius)"],
+    "languages": [],
+    "challenge": "1",
+    "traits": [
+      {
+        "name": "Antimagic Susceptibility",
+        "content": "The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute."
+      },
+      {
+        "name": "False Appearance",
+        "content": "While the armor remains motionless, it is indistinguishable from a normal suit of armor."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Multiattack",
+        "content": "The armor makes two melee attacks."
+      },
+      {
+        "name": "Slam",
+        "content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage."
+      }
+    ],
+    "reactions": [],
+    "legendaryActions": [],
+    "description": "",
+    "tags": ["Animated Objects"]
+  },
+  {
+    "name": "Guard",
+    "source": "5e OGL",
+    "type": "Medium humanoid (any race), any alignment",
+    "hp": {
+      "value": 11,
+      "notes": "(2d8+2)"
+    },
+    "ac": {
+      "value": 16,
+      "notes": "(chain shirt, shield)"
+    },
+    "speed": ["30 ft."],
+    "abilities": {
+      "str": 13,
+      "dex": 12,
+      "con": 12,
+      "int": 10,
+      "wis": 11,
+      "cha": 10
+    },
+    "damageVulnerabilities": [],
+    "damageResistances": [],
+    "damageImmunities": [],
+    "conditionImmunities": [],
+    "saves": [],
+    "skills": [
+      {
+        "name": "Perception",
+        "modifier": 2
+      }
+    ],
+    "senses": [],
+    "languages": ["any one language (usually Common)"],
+    "challenge": "1/8",
+    "traits": [],
+    "actions": [
+      {
+        "name": "Spear",
+        "content": "Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack."
+      }
+    ],
+    "reactions": [],
+    "legendaryActions": [],
+    "description": "",
+    "tags": []
+  },
+  {
+    "name": "Cultist",
+    "source": "5e OGL",
+    "type": "Medium humanoid (any race), any non-good alignment",
+    "hp": {
+      "value": 9,
+      "notes": "(2d8)"
+    },
+    "ac": {
+      "value": 12,
+      "notes": "(leather armor)"
+    },
+    "speed": ["30 ft."],
+    "abilities": {
+      "str": 11,
+      "dex": 12,
+      "con": 10,
+      "int": 10,
+      "wis": 11,
+      "cha": 10
+    },
+    "damageVulnerabilities": [],
+    "damageResistances": [],
+    "damageImmunities": [],
+    "conditionImmunities": [],
+    "saves": [],
+    "skills": [
+      {
+        "name": "Deception",
+        "modifier": 2
+      },
+      {
+        "name": "Religion",
+        "modifier": 2
+      }
+    ],
+    "senses": [],
+    "languages": ["any one language (usually Common)"],
+    "challenge": "1/8",
+    "traits": [
+      {
+        "name": "Dark Devotion",
+        "content": "The cultist has advantage on saving throws against being charmed or frightened."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Scimitar",
+        "content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) slashing damage."
+      }
+    ],
+    "reactions": [],
+    "legendaryActions": [],
+    "description": "",
+    "tags": []
+  }
+]

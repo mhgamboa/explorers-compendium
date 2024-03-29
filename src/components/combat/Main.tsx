@@ -1,26 +1,35 @@
 "use client";
-import React from "react";
-import { useHydrateAtoms } from "jotai/utils";
-import { useAtomValue } from "jotai";
-import { combatantsAtom, indexAtom } from "@/atoms/combat";
-import MonsterStats from "@/components/monster/MonsterStats";
+import React, { useEffect } from "react";
+// import MonsterStats from "@/components/monster/MonsterStats";
 import Track from "./Track";
 import CombatCard from "./CombatCard";
+import useHandleKeyUp from "@/lib/combat/handleKeyUp";
+import InitiativeModal from "@/components/combat/modal/Initiative";
+import { Monster } from "@/types/monster";
+import { useCombatStore } from "@/store/combatStore";
+// import { viewAtom } from "@/atoms/combat";
+// import { combatantsAtom, indexAtom } from "@/atoms/combat";
+// import { useAtom } from "jotai";
 
-export default function Main(monsterData: any) {
-  useHydrateAtoms([[combatantsAtom, monsterData]]);
-  const combatants = useAtomValue(combatantsAtom);
-  const index = useAtomValue(indexAtom);
+export default function Main({ monsterData }: { monsterData: Monster[] }) {
+  const setCombatants = useCombatStore((state) => state.setCombatants);
+  console.log("main");
+
+  useEffect(() => {
+    window.addEventListener("keyup", useHandleKeyUp);
+    setCombatants(monsterData);
+    return () => {
+      window.removeEventListener("keyup", useHandleKeyUp);
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="w-full flex flex-col space-y-4 pt-2">
+    <div className="flex w-full flex-col space-y-4 outline-none ">
+      <InitiativeModal />
       <Track />
-      <div className="flex p-2 justify-around">
-        <div className="bg-parchment-background shadow-xl border-2 border-gray-400 rounded p-2 max-w-xl">
-          {/* <MonsterStats monster={combatants.monsterData[index]} /> */}
-          <CombatCard />
-        </div>
-      </div>
+      {/* <div className="flex justify-around space-x-4 p-4"> */}
+      <CombatCard />
+      {/* </div> */}
     </div>
   );
 }

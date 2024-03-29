@@ -1,26 +1,22 @@
 "use client";
 import React from "react";
-import { useAtom } from "jotai";
-import { LoggedInAtom } from "@/atoms/atoms";
+// import { useAtom } from "jotai";
+// import { LoggedInAtom } from "@/atoms/atoms";
 
 export default function Header() {
-  const [loggedIn, setLoggedIn] = useAtom(LoggedInAtom);
+  // const [loggedIn, setLoggedIn] = useAtom(LoggedInAtom);
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
-    setLoggedIn(!loggedIn);
+    // setLoggedIn(!loggedIn);
   };
   return (
     <header className="bg-gray-300">
-      <nav className="flex justify-center w-full sm:justify-start border-gray-200 px-4 lg:px-6 py-4">
+      <nav className="flex w-full justify-center border-gray-200 px-4 py-4 sm:justify-start lg:px-6">
         <a
           onClick={handleClick}
-          className={`text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 focus:outline-none cursor-pointer ${
-            loggedIn
-              ? "bg-green-700 hover:bg-green-800 focus:ring-green-300"
-              : "bg-red-700 hover:bg-red-800 focus:ring-red-300"
-          }`}
+          className="me-2 cursor-pointer rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4"
         >
-          Fake Patreon Log In Button ({loggedIn ? "Logged In" : "Logged Out"})
+          Fake Patreon Log In Button
         </a>
       </nav>
     </header>
