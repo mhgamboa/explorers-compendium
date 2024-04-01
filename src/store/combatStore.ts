@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { Monster } from "@/types/monster";
+import { Encounter } from "@/types/encounter";
 
 type View = "main" | "initiative" | "damage" | "roll";
 

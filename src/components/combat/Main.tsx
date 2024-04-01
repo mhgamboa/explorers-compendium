@@ -1,23 +1,48 @@
 "use client";
 import React, { useEffect } from "react";
-// import MonsterStats from "@/components/monster/MonsterStats";
 import Track from "./Track";
 import CombatCard from "./CombatCard";
 import useHandleKeyUp from "@/lib/combat/handleKeyUp";
 import InitiativeModal from "@/components/combat/modal/Initiative";
 import { Monster } from "@/types/monster";
+import { Player } from "@/types/player";
+import { Encounter } from "@/types/encounter";
 import { useCombatStore } from "@/store/combatStore";
-// import { viewAtom } from "@/atoms/combat";
-// import { combatantsAtom, indexAtom } from "@/atoms/combat";
-// import { useAtom } from "jotai";
 
-export default function Main({ monsterData }: { monsterData: Monster[] }) {
+type Props = {
+  monsterData: Monster[];
+  playerData: Player[];
+};
+
+export default function Main({ monsterData, playerData }: Props) {
   const setCombatants = useCombatStore((state) => state.setCombatants);
-  console.log("main");
 
   useEffect(() => {
     window.addEventListener("keyup", useHandleKeyUp);
+    const arr: Encounter = [];
+    monsterData.forEach((m) => {
+      arr.push({
+        combatant: m,
+        type: "monster",
+        initiative: 0,
+        currentHp: m.hp.value,
+        status: [],
+      });
+    });
+    playerData.forEach((p) => {
+      arr.push({
+        combatant: p,
+        type: "player",
+        initiative: 0,
+        currentHp: p.totalHp || 0,
+        status: [],
+      });
+    });
+    console.log("arr", arr);
+    // console.log("monsterData", monsterData);
+    // console.log("playerData", playerData);
     setCombatants(monsterData);
+    // setCombatants(arr);
     return () => {
       window.removeEventListener("keyup", useHandleKeyUp);
     };
@@ -27,9 +52,7 @@ export default function Main({ monsterData }: { monsterData: Monster[] }) {
     <div className="flex w-full flex-col outline-none">
       <InitiativeModal />
       <Track />
-      {/* <div className="flex justify-around space-x-4 p-4"> */}
       <CombatCard />
-      {/* </div> */}
     </div>
   );
 }

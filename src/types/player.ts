@@ -1,8 +1,10 @@
 export type Player = {
-  name: string;
+  characterName: string;
+  playerName: string;
   class?: string;
   level?: number;
-  hp?: string;
-  ac?: string;
+  totalHp?: number;
+  ac?: number;
   passivePerception?: number;
+  user_Id?: { $oid: string };
 };
