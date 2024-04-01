@@ -10,7 +10,6 @@ export default async function page() {
   const monsterCollection = db.collection("monsters");
   const monsterRes = await monsterCollection.find({}).limit(50).toArray();
   const monsterData: Monster[] = JSON.parse(JSON.stringify(monsterRes));
-  console.log(monsterData);
   return (
     <div className="w-full">
       {/* <AppInitializer monsters={monsterData}> */}
