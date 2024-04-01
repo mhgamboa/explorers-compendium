@@ -3,15 +3,16 @@ import React, { ReactNode } from "react";
 import { useCombatStore } from "@/store/combatStore";
 
 export default function ModalWrapper({ children }: { children: ReactNode }) {
-  const { setView } = useCombatStore();
+  const setView = useCombatStore((state) => state.setView);
 
   return (
     <>
       <div
-        className="fixed z-10 h-full w-full bg-slate-950 bg-opacity-60 backdrop-blur-[2px]"
+        id="overlay"
+        className="fixed z-10 h-full w-full bg-slate-950 bg-opacity-60 backdrop-blur-[2px] duration-500"
         onClick={() => setView("main")}
       />
-      <div className="fixed left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 transform rounded bg-white p-5">
+      <div className="fixed inset-0 z-20 m-auto h-fit w-fit transform rounded bg-white p-5 duration-500">
         {children}
       </div>
     </>
