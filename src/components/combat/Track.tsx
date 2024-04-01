@@ -45,14 +45,14 @@ export default function Track() {
   if (!combatants) return;
   return (
     <div
-      className="no-scrollbar flex w-full space-x-2 overflow-scroll"
+      className="no-scrollbar flex w-full space-x-2 overflow-scroll pt-2"
       onWheel={handleWheelScroll}
       ref={containerRef}
     >
-      {combatants.map((c: any, i: number) => {
+      {combatants.map((c, i) => {
         return (
           <div
-            key={c._id}
+            key={c._id + i}
             className={`flex h-20 w-full min-w-48 cursor-pointer flex-col items-center justify-center rounded border-2 border-black px-2 text-center ${
               i === index && "bg-red-500"
             }`}
