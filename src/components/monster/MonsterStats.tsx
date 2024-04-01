@@ -2,70 +2,57 @@ import React from "react";
 import TriangleDivider from "@/components/ui/TriangleDivider";
 import calculateModifier from "@/lib/monster/calculateAbilityScore";
 import calculateXP from "@/lib/monster/calculateXP";
+import { Monster } from "@/types/monster";
 // import { useAtomValue } from "jotai";
 // import { LoggedInAtom } from "@/atoms/atoms";
 
-export default function MonsterStats({ monster }: any) {
+export default function MonsterStats({ monster }: { monster: Monster }) {
   // const loggedIn = useAtomValue(LoggedInAtom);
 
   const {
-    AC,
-    HP,
-    Speed,
-    Abilities,
-    DamageVulnerabilities,
-    DamageResistances,
-    DamageImmunities,
-    ConditionImmunities,
-    Saves,
-    Skills,
-    Senses,
-    Languages,
-    Challenge,
-    Traits,
-    Actions,
-    Reactions,
-    LegendaryActions,
-    Creator,
+    name,
+    ac,
+    hp,
+    speed,
+    abilities,
+    damageVulnerabilities,
+    damageResistances,
+    damageImmunities,
+    conditionImmunities,
+    saves,
+    skills,
+    senses,
+    languages,
+    challenge,
+    traits,
+    actions,
+    reactions,
+    legendaryActions,
   } = monster;
 
   return (
-    <div className="py-4">
-      <h3 className="text-lg font-medium">
-        You must be logged in and be a subscriber of{" "}
-        <span className="text-red-900">{Creator.name}&apos;s</span> Patreon to
-        view these stats!
-      </h3>
-      <p className="pt-10">
-        You can subscribe to their Patreon{" "}
-        <a className="text-red-900" href={Creator.Patreon} target="_blank">
-          here
-        </a>
-      </p>
-    </div>
-  );
-
-  return (
     <div>
+      <div className="pb-2 text-2xl font-bold text-red-900">{name}</div>
       <TriangleDivider />
-      {/* AC, HP, Speed */}
+      {/* ac, hp, speed */}
       <div className="py-2 text-red-900">
-        <div>
-          Armor Class {AC.Value} {AC.Notes} <br />
+        <div id="ac">
+          Armor Class {ac.value} {ac.notes} <br />
         </div>
-        <div>
-          Hit Points {HP.Value} {HP.Notes}
+        <div id="hp">
+          Hit Points {hp.value} {hp.notes}
         </div>
-        <div>Speed {Speed.join(", ")}</div>
+        <div id="speed">Speed {speed.join(", ")}</div>
       </div>
       <TriangleDivider />
       {/* Ability Scores */}
       <div className="flex w-full py-2 text-red-900">
-        {Object.keys(Abilities).map((a: string) => {
-          const abilityScore = Abilities[a];
+        {Object.entries(abilities).map((keyVal) => {
+          const ability = keyVal[0];
+          const abilityScore = keyVal[1];
           return (
-            <div key={a} className="flex w-1/6 flex-col items-center">
-              <div className="font-bold">{a}</div>
+            <div key={ability} className="flex w-1/6 flex-col items-center">
+              <div className="font-bold">{ability}</div>
               <div>
                 <span>{abilityScore}</span> ({calculateModifier(abilityScore)})
               </div>
@@ -75,131 +62,131 @@ export default function MonsterStats({ monster }: any) {
       </div>
       <TriangleDivider />
 
-      {/* Vulnerabilities/Resistances/Immunities, Saves, Skills, Senses, Languages, CR */}
+      {/* Vulnerabilities/Resistances/Immunities, saves, skills, senses, languages, CR */}
       <div className="flex w-full flex-col py-2 leading-8 text-red-900">
         <div id="vulnerabilities">
-          {DamageVulnerabilities.length >= 1 && (
+          {damageVulnerabilities.length >= 1 && (
             <>
               <span className="font-bold">Damage Vulnerabilities</span>{" "}
-              {DamageVulnerabilities.join(", ")}
+              {damageVulnerabilities.join(", ")}
             </>
           )}
         </div>
         <div className="resistances text-red-900">
-          {DamageResistances.length >= 1 && (
+          {damageResistances.length >= 1 && (
             <>
               <span className="font-bold">Damage Resistances</span>{" "}
-              {DamageResistances.join(", ")}
+              {damageResistances.join(", ")}
             </>
           )}
         </div>
         <div className="damageImmunities text-red-900">
-          {DamageImmunities.length >= 1 && (
+          {damageImmunities.length >= 1 && (
             <>
               <span className="font-bold">Damage Immunities</span>{" "}
-              {DamageImmunities.join(", ")}
+              {damageImmunities.join(", ")}
             </>
           )}
         </div>
         <div className="conditionImmunities">
-          {ConditionImmunities.length >= 1 && (
+          {conditionImmunities.length >= 1 && (
             <>
               <span className="font-bold">Condition Immunities</span>{" "}
-              {ConditionImmunities.join(", ")}
+              {conditionImmunities.join(", ")}
             </>
           )}
         </div>
         <div className="saves">
-          {Saves.length >= 1 && (
+          {saves.length >= 1 && (
             <>
               <span className="font-bold">Saves</span>{" "}
-              {Saves.map((s: any) => `${s.Name} +${s.Modifier}`).join(", ")}
+              {saves.map((s) => `${s.name} +${s.modifier}`).join(", ")}
             </>
           )}
         </div>
         <div className="skills">
-          {Skills.length >= 1 && (
+          {skills.length >= 1 && (
             <>
               <span className="font-bold">Skills</span>{" "}
-              {Skills.map((s: any) => `${s.Name} +${s.Modifier}`).join(", ")}
+              {skills.map((s) => `${s.name} +${s.modifier}`).join(", ")}
             </>
           )}
         </div>
         <div className="senses">
-          {Senses.length >= 1 && (
+          {senses.length >= 1 && (
             <>
-              <span className="font-bold">Senses</span> {Senses.join(", ")}
+              <span className="font-bold">Senses</span> {senses.join(", ")}
             </>
           )}
         </div>
         <div className="languages">
-          {Languages.length >= 1 && (
+          {languages.length >= 1 && (
             <>
               <span className="font-bold">Languages</span>{" "}
-              {Languages.join(", ")}
+              {languages.join(", ")}
             </>
           )}
         </div>
         <div className="challenge">
           {
             <>
-              <span className="font-bold">Challenge</span> {Challenge} (
-              {calculateXP(Challenge)} XP)
+              <span className="font-bold">Challenge</span> {challenge} (
+              {calculateXP(challenge)} XP)
             </>
           }
         </div>
       </div>
       <TriangleDivider />
-      {/* Traits */}
+      {/* traits */}
       <div className="space-y-1 whitespace-pre-wrap py-2">
-        {Traits.map((t: any) => {
+        {traits.map((t) => {
           return (
-            <div key={t.Name}>
-              <span className="font-semibold italic">{t.Name}</span> {t.Content}
+            <div key={t.name}>
+              <span className="font-semibold italic">{t.name}</span> {t.content}
             </div>
           );
         })}
       </div>
-      {/* Actions */}
+      {/* actions */}
       <div id="actions" className="py-2">
         <h3 className="text-2xl font-light text-red-900">Actions</h3>
         <hr className="border-black" />
-        {Actions.map((a: any) => {
+        {actions.map((a) => {
           return (
-            <div className="pt-4" key={a.Name}>
-              <span className="font-semibold italic">{a.Name}. </span>{" "}
-              {a.Content}
+            <div className="pt-4" key={a.name}>
+              <span className="font-semibold italic">{a.name}. </span>{" "}
+              {a.content}
             </div>
           );
         })}
       </div>
-      {/* Reactions */}
-      {Reactions.length > 0 && (
+      {/* reactions */}
+      {reactions.length > 0 && (
         <div id="actions" className="py-2">
           <h3 className="text-2xl font-light text-red-900">Reactions</h3>
           <hr className="border-black" />
-          {Reactions.map((a: any) => {
+          {reactions.map((a) => {
             return (
-              <div className="pt-4" key={a.Name}>
-                <span className="font-semibold italic">{a.Name}. </span>{" "}
-                {a.Content}
+              <div className="pt-4" key={a.name}>
+                <span className="font-semibold italic">{a.name}. </span>{" "}
+                {a.content}
               </div>
             );
           })}
         </div>
       )}
-      {/* Reactions */}
-      {LegendaryActions.length > 0 && (
+      {/* legendary actions */}
+      {legendaryActions.length > 0 && (
         <div id="actions" className="py-2">
           <h3 className="text-2xl font-light text-red-900">
             Legendary Actions
           </h3>
           <hr className="border-black" />
-          {LegendaryActions.map((a: any) => {
+          {legendaryActions.map((a) => {
             return (
-              <div className="pt-4" key={a.Name}>
-                <span className="font-semibold italic">{a.Name}. </span>{" "}
-                {a.Content}
+              <div className="pt-4" key={a.name}>
+                <span className="font-semibold italic">{a.name}. </span>{" "}
+                {a.content}
               </div>
             );
           })}
