@@ -24,7 +24,7 @@ export default function Main({ monsterData }: { monsterData: Monster[] }) {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="flex w-full flex-col space-y-4 outline-none ">
+    <div className="flex w-full flex-col outline-none">
       <InitiativeModal />
       <Track />
       {/* <div className="flex justify-around space-x-4 p-4"> */}
