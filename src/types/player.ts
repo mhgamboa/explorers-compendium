@@ -1,4 +1,8 @@
 export type Player = {
-  level: number;
+  name: string;
   class?: string;
+  level?: number;
+  hp?: string;
+  ac?: string;
+  passivePerception?: number;
 };

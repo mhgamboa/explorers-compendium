@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { Monster } from "@/types/monster";
 
-type View = "main" | "initiative" | "damage";
+type View = "main" | "initiative" | "damage" | "roll";
 
 type CombatState = {
   view: View;
