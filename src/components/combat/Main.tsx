@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect } from "react";
 import Track from "./Track";
-import CombatCard from "./CombatCard";
+import CombatCard from "./combatCard/CombatCard";
 import useHandleKeyUp from "@/lib/combat/handleKeyUp";
-import InitiativeModal from "@/components/combat/modal/Initiative";
+import InitiativeModal from "@/components/combat/modal/initiative/InitiativeModal";
 import { Monster } from "@/types/monster";
 import { Player } from "@/types/player";
 import { Encounter } from "@/types/encounter";
@@ -24,7 +24,7 @@ export default function Main({ monsterData, playerData }: Props) {
       arr.push({
         combatant: m,
         type: "monster",
-        initiative: 0,
+        rolledInitiative: 0,
         currentHp: m.hp.value,
         status: [],
       });
@@ -33,16 +33,13 @@ export default function Main({ monsterData, playerData }: Props) {
       arr.push({
         combatant: p,
         type: "player",
-        initiative: 0,
+        rolledInitiative: 0,
         currentHp: p.totalHp || 0,
         status: [],
       });
     });
     console.log("arr", arr);
-    // console.log("monsterData", monsterData);
-    // console.log("playerData", playerData);
-    setCombatants(monsterData);
-    // setCombatants(arr);
+    setCombatants(arr);
     return () => {
       window.removeEventListener("keyup", useHandleKeyUp);
     };

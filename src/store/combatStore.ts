@@ -6,14 +6,18 @@ type View = "main" | "initiative" | "damage" | "roll";
 
 type CombatState = {
   view: View;
-  combatants: Monster[];
+  combatants: Encounter;
   index: number;
+  syncInitiative: boolean;
+  initiativeHighlight: number;
 };
 
 type CombatActions = {
   setView: (view: View) => void;
-  setCombatants: (monsters: Monster[]) => void;
+  setCombatants: (monsters: Encounter) => void;
   setIndex: (n: number) => void;
+  toggleSyncInitiative: () => void;
+  setInitiativeHighlight: (n: number) => void;
 };
 
 export const useCombatStore = create<CombatState & CombatActions>((set) => ({
@@ -22,12 +26,22 @@ export const useCombatStore = create<CombatState & CombatActions>((set) => ({
     set({ view });
   },
   combatants: [],
-  setCombatants: (monsters) => {
-    set({ combatants: monsters });
+  setCombatants: (combatants) => {
+    set({ combatants });
   },
   index: 0,
   setIndex(n) {
     set({ index: n });
+  },
+  syncInitiative: true,
+  toggleSyncInitiative: () => {
+    set((state) => ({
+      syncInitiative: !state.syncInitiative,
+    }));
+  },
+  initiativeHighlight: 0,
+  setInitiativeHighlight: (n) => {
+    set({ initiativeHighlight: n });
   },
   // count: 0,
   // increment: () => {

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useCallback } from "react";
 import { useCombatStore } from "@/store/combatStore";
+import { isMonster, isPlayer } from "@/types/encounter";
 
 export default function Track() {
   const combatants = useCombatStore((state) => state.combatants);
@@ -42,19 +43,22 @@ export default function Track() {
       className="no-scrollbar flex w-full space-x-2 overflow-scroll py-2"
       ref={containerRef}
     >
-      {combatants.map((c, i) => {
-        return (
-          <div
-            key={c._id + i}
-            className={`flex h-20 w-full min-w-48 cursor-pointer flex-col items-center justify-center rounded border-2 border-black px-2 text-center ${
-              i === index && "border-red-700 shadow shadow-indigo-950"
-            }`}
-            onClick={() => setIndex(i)}
-          >
-            {c.name}
-          </div>
-        );
-      })}
+      {combatants
+        .sort((a, b) => a.rolledInitiative - b.rolledInitiative)
+        .map((c, i) => {
+          return (
+            <div
+              key={i}
+              className={`flex h-20 w-full min-w-48 cursor-pointer flex-col items-center justify-center rounded border-2 border-black px-2 text-center ${
+                i === index && "border-red-700 shadow shadow-indigo-950"
+              }`}
+              onClick={() => setIndex(i)}
+            >
+              {isMonster(c.combatant) && c.combatant.name}
+              {isPlayer(c.combatant) && c.combatant.characterName}
+            </div>
+          );
+        })}
     </div>
   );
 }
