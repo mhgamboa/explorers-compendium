@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useEffect, useCallback } from "react";
 import { useCombatStore } from "@/store/combatStore";
 import { isMonster, isPlayer } from "@/types/encounter";

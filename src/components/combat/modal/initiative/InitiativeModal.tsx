@@ -6,7 +6,7 @@ import Body from "./Body";
 import Heading from "./Heading";
 import Foot from "./Foot";
 
-export default function Initiative() {
+export default function InitiativeModal() {
   const view = useCombatStore((state) => state.view);
 
   if (view !== "initiative") return;

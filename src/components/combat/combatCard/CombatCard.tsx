@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { useCombatStore } from "@/store/combatStore";
 import MonsterDisplay from "./MonsterDisplay";

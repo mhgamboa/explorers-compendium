@@ -1,20 +1,23 @@
 "use client";
-import React, { useEffect } from "react";
-import Track from "./Track";
-import CombatCard from "./combatCard/CombatCard";
+import React, { ReactNode, useEffect } from "react";
 import useHandleKeyUp from "@/lib/combat/handleKeyUp";
-import InitiativeModal from "@/components/combat/modal/initiative/InitiativeModal";
+import { useCombatStore } from "@/store/combatStore";
 import { Monster } from "@/types/monster";
 import { Player } from "@/types/player";
 import { Encounter } from "@/types/encounter";
-import { useCombatStore } from "@/store/combatStore";
 
 type Props = {
-  monsterData: Monster[];
+  children: ReactNode;
+  encounter?: Encounter; //Will eventually replace playerData & MonsterData
   playerData: Player[];
+  monsterData: Monster[];
 };
 
-export default function Main({ monsterData, playerData }: Props) {
+export default function InitializeState({
+  monsterData,
+  playerData,
+  children,
+}: Props) {
   const setCombatants = useCombatStore((state) => state.setCombatants);
   const setInitiativeArray = useCombatStore(
     (state) => state.setInitiativeArray,
@@ -48,11 +51,5 @@ export default function Main({ monsterData, playerData }: Props) {
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return (
-    <div className="flex w-full flex-col outline-none">
-      <InitiativeModal />
-      <Track />
-      <CombatCard />
-    </div>
-  );
+  return <>{children}</>;
 }
