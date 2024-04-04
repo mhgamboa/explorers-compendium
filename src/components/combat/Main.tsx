@@ -16,6 +16,9 @@ type Props = {
 
 export default function Main({ monsterData, playerData }: Props) {
   const setCombatants = useCombatStore((state) => state.setCombatants);
+  const setInitiativeArray = useCombatStore(
+    (state) => state.setInitiativeArray,
+  );
 
   useEffect(() => {
     window.addEventListener("keyup", useHandleKeyUp);
@@ -38,7 +41,7 @@ export default function Main({ monsterData, playerData }: Props) {
         status: [],
       });
     });
-    console.log("arr", arr);
+    setInitiativeArray(arr.map((c) => c.rolledInitiative));
     setCombatants(arr);
     return () => {
       window.removeEventListener("keyup", useHandleKeyUp);

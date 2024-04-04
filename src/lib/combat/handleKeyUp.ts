@@ -17,19 +17,20 @@ const handleInitiative = (key: string) => {
   if (key === "Escape") useCombatStore.setState({ view: "main" });
   const keyIsNumber = !isNaN(+key);
 
-  const combatantIndex = useCombatStore.getState().initiativeHighlight;
-  const combatants = [...useCombatStore.getState().combatants];
-  const combatant = combatants[combatantIndex];
+  // const combatantIndex = useCombatStore.getState().initiativeHighlight;
+  // const combatants = [...useCombatStore.getState().combatants];
+  // const combatant = combatants[combatantIndex];
 
   if (keyIsNumber) {
-    combatant.rolledInitiative = +(combatant.rolledInitiative + key);
-    useCombatStore.setState({ combatants });
+    // combatant.rolledInitiative = +(combatant.rolledInitiative + key);
+    // useCombatStore.setState({ combatants });
+    // useCombatStore.getState().setCombatants(combatants);
   }
 
   if (key === "Backspace") {
-    if (!combatant.rolledInitiative) return;
-    combatant.rolledInitiative = Math.floor(combatant.rolledInitiative / 10);
-    useCombatStore.setState({ combatants });
+    // if (!combatant.rolledInitiative) return;
+    // combatant.rolledInitiative = Math.floor(combatant.rolledInitiative / 10);
+    // useCombatStore.setState({ combatants });
   }
 };
 

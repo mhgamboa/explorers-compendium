@@ -6,6 +6,7 @@ import { useCombatStore } from "@/store/combatStore";
 function Heading() {
   const combatants = useCombatStore((state) => state.combatants);
   const setCombatants = useCombatStore((state) => state.setCombatants);
+  const setInitiativeArray = useCombatStore((s) => s.setInitiativeArray);
 
   const syncInitiative = useCombatStore((state) => state.syncInitiative);
   const toggleSyncInitiative = useCombatStore((s) => s.toggleSyncInitiative);
@@ -16,13 +17,12 @@ function Heading() {
     e.preventDefault();
     const rolledInitiative = rollDice(20);
     const arr = combatants.map((c) => {
-      if (!isMonster(c.combatant)) return c;
+      if (!isMonster(c.combatant)) return 0;
 
-      return syncInitiative
-        ? { ...c, rolledInitiative }
-        : { ...c, rolledInitiative: rollDice(20) };
+      return syncInitiative ? rolledInitiative : rollDice(20);
     });
-    setCombatants(arr);
+
+    setInitiativeArray(arr);
   };
   return (
     <div className="flex justify-between border-b-2 py-2">

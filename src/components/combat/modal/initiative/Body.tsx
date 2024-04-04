@@ -6,30 +6,28 @@ import { Player } from "@/types/player";
 import { Monster } from "@/types/monster";
 
 export default function Body() {
-  const combatants = useCombatStore((state) => state.combatants);
-  const initiativeHighlight = useCombatStore((s) => s.initiativeHighlight);
-  const setInitiativeHighlight = useCombatStore(
-    (s) => s.setInitiativeHighlight,
-  );
+  const combatants = useCombatStore((s) => s.combatants);
+
   return (
     <div id="combatants" className="flex flex-wrap justify-center gap-2 py-6">
       {combatants.map((c, i) => {
         return (
           <div
             key={i}
-            onClick={() => setInitiativeHighlight(i)}
-            className={`flex w-32 cursor-pointer flex-col justify-between rounded border-2 p-2 text-center ${i === initiativeHighlight && "bg-red-500"}`}
+            className="flex w-32 cursor-pointer flex-col justify-between rounded border-2 p-2 text-center"
           >
             {isMonster(c.combatant) && (
               <MonsterCard
                 monster={c.combatant}
                 rolledInitiative={c.rolledInitiative}
+                i={i}
               />
             )}
             {isPlayer(c.combatant) && (
               <PlayerCard
                 player={c.combatant}
                 rolledInitiative={c.rolledInitiative}
+                i={i}
               />
             )}
           </div>
@@ -42,21 +40,31 @@ export default function Body() {
 type MonsterProps = {
   monster: Monster;
   rolledInitiative: number;
+  i: number;
 };
-const MonsterCard = ({ monster, rolledInitiative }: MonsterProps) => {
-  const syncInitiative = useCombatStore((state) => state.syncInitiative);
-  const initiative = syncInitiative
-    ? rolledInitiative
-    : rolledInitiative + calculateModifier(monster.abilities.dex);
+const MonsterCard = ({ monster, rolledInitiative, i }: MonsterProps) => {
+  // const syncInitiative = useCombatStore((state) => state.syncInitiative);
+  const initiativeArray = useCombatStore((s) => s.initiativeArray);
+  const setInitiativeArray = useCombatStore((s) => s.setInitiativeArray);
+
+  // const initiative = syncInitiative
+  //   ? rolledInitiative
+  //   : rolledInitiative + calculateModifier(monster.abilities.dex);
   return (
     <>
       <div>{monster.name}</div>
-      <div>{initiative}</div>
-      {rolledInitiative > 0 && !syncInitiative && (
+      {/* <div>{initiative}</div> */}
+      <input
+        type="text"
+        value={initiativeArray[i]}
+        className={inputClass}
+        onChange={(e) => handleChange(e, i)}
+      />
+      {/* {rolledInitiative > 0 && !syncInitiative && (
         <div className="text-xs text-gray-500">
           ({rolledInitiative} + {calculateModifier(monster.abilities.dex)})
         </div>
-      )}
+      )} */}
     </>
   );
 };
@@ -64,12 +72,34 @@ const MonsterCard = ({ monster, rolledInitiative }: MonsterProps) => {
 type PlayerProps = {
   player: Player;
   rolledInitiative: number;
+  i: number;
 };
-const PlayerCard = ({ player, rolledInitiative }: PlayerProps) => {
+const PlayerCard = ({ player, rolledInitiative, i }: PlayerProps) => {
+  const initiativeArray = useCombatStore((s) => s.initiativeArray);
   return (
     <>
       <div>{player.characterName}</div>
-      <div>{rolledInitiative}</div>
+      <input
+        type="text"
+        value={initiativeArray[i]}
+        className={inputClass}
+        onChange={(e) => handleChange(e, i)}
+      />
     </>
   );
+};
+
+const inputClass = "border p-1 text-center rounded";
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>, i: number) => {
+  e.preventDefault();
+  let newNumber = e.target.value;
+  if (isNaN(+newNumber)) return;
+
+  if (newNumber[0] === "0") newNumber.slice(1);
+  if (newNumber === "") newNumber = "0";
+
+  let initiativeArray = [...useCombatStore.getState().initiativeArray];
+  initiativeArray[i] = +newNumber;
+  useCombatStore.setState({ initiativeArray });
 };

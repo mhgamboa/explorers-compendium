@@ -9,7 +9,7 @@ type CombatState = {
   combatants: Encounter;
   index: number;
   syncInitiative: boolean;
-  initiativeHighlight: number;
+  initiativeArray: number[];
 };
 
 type CombatActions = {
@@ -17,20 +17,24 @@ type CombatActions = {
   setCombatants: (monsters: Encounter) => void;
   setIndex: (n: number) => void;
   toggleSyncInitiative: () => void;
-  setInitiativeHighlight: (n: number) => void;
+  setInitiativeArray: (n: number[]) => void;
 };
 
-export const useCombatStore = create<CombatState & CombatActions>((set) => ({
+export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
   view: "main",
   setView: (view) => {
     set({ view });
   },
   combatants: [],
   setCombatants: (combatants) => {
-    set({ combatants });
+    set({
+      combatants: combatants.sort(
+        (a, b) => a.rolledInitiative - b.rolledInitiative,
+      ),
+    });
   },
   index: 0,
-  setIndex(n) {
+  setIndex: (n) => {
     set({ index: n });
   },
   syncInitiative: true,
@@ -39,19 +43,8 @@ export const useCombatStore = create<CombatState & CombatActions>((set) => ({
       syncInitiative: !state.syncInitiative,
     }));
   },
-  initiativeHighlight: 0,
-  setInitiativeHighlight: (n) => {
-    set({ initiativeHighlight: n });
+  initiativeArray: [],
+  setInitiativeArray: (initiativeArray) => {
+    set({ initiativeArray });
   },
-  // count: 0,
-  // increment: () => {
-  //   set((state) => ({
-  //     count: state.count + 1,
-  //   }));
-  // },
-  // decrement: () => {
-  //   set((state) => ({
-  //     count: state.count - 1,
-  //   }));
-  // },
 }));
