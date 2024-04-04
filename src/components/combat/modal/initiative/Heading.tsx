@@ -17,7 +17,7 @@ function Heading() {
     e.preventDefault();
     const rolledInitiative = rollDice(20);
     const arr = combatants.map((c) => {
-      if (!isMonster(c.combatant)) return 0;
+      if (!isMonster(c.combatant)) return c.rolledInitiative;
 
       return syncInitiative ? rolledInitiative : rollDice(20);
     });
