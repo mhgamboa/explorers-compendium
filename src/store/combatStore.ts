@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import { Encounter } from "@/types/combatTypes";
 
-type View = "main" | "initiative" | "damage" | "roll";
+export type View = "main" | "initiative" | "damage" | "roll" | "savingThrow";
+export type SavingThrow = "" | "str" | "dex" | "con" | "int" | "wis" | "cha";
 
 type CombatState = {
   view: View;
@@ -9,6 +10,8 @@ type CombatState = {
   index: number;
   syncInitiative: boolean;
   initiativeArray: number[];
+  selectedSavingThrow: SavingThrow;
+  whoRollsSavingThrows: number[];
 };
 
 type CombatActions = {
@@ -17,6 +20,8 @@ type CombatActions = {
   setIndex: (n: number) => void;
   toggleSyncInitiative: () => void;
   setInitiativeArray: (n: number[]) => void;
+  setSelectedSavingThrow: (s: SavingThrow) => void;
+  setWhoRollsSavingThrows: (n: number[]) => void;
 };
 
 export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
@@ -45,5 +50,12 @@ export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
   initiativeArray: [],
   setInitiativeArray: (initiativeArray) => {
     set({ initiativeArray });
+  },
+  selectedSavingThrow: "",
+  setSelectedSavingThrow: (selectedSavingThrow) => set({ selectedSavingThrow }),
+  whoRollsSavingThrows: [],
+  setWhoRollsSavingThrows: (whoRollsSavingThrows) => {
+    console.log(whoRollsSavingThrows);
+    set({ whoRollsSavingThrows });
   },
 }));

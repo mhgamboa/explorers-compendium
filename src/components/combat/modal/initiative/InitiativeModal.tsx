@@ -8,9 +8,6 @@ import Foot from "./Foot";
 
 export default function InitiativeModal() {
   const view = useCombatStore((state) => state.view);
-  const combatants = useCombatStore((s) => s.combatants);
-  const setInitiativeArray = useCombatStore((s) => s.setInitiativeArray);
-  setInitiativeArray(combatants.map((c) => c.rolledInitiative));
 
   if (view !== "initiative") return;
   return (

@@ -8,13 +8,19 @@ export default function CurrentStats() {
   const { rolledInitiative, currentHp, status } = currentcombatant;
   return (
     <div className="flex w-full flex-col gap-2">
-      <div className="flex justify-around">
-        <span>Current Hp: {currentHp}</span>
+      <div className="mx-auto">
+        <span className="text-lg text-red-900">Current Hp: </span>
+        {currentHp}
       </div>
-      <div>
-        <span>
-          Current Statuses: {status.length ? status.map((s) => s) : "none"}
-        </span>
+      <div className="flex justify-around">
+        <div>
+          <span className="text-lg text-red-900">Current Statuses:</span>{" "}
+          {status.length ? status.map((s) => s) : "none"}
+        </div>
+        <div>
+          <span className="text-lg text-red-900">Initiative: </span>
+          {currentcombatant.rolledInitiative}
+        </div>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import InitiaizeState from "@/components/combat/InitializeState";
 import InitiativeModal from "@/components/combat/modal/initiative/InitiativeModal";
 import Track from "@/components/combat/Track";
 import CombatCard from "@/components/combat/combatCard/CombatCard";
+import SavingThrowModal from "@/components/combat/modal/savingThrow/SavingThrowModal";
 
 export default async function page() {
   const client = await clientPromise;
@@ -27,6 +28,7 @@ export default async function page() {
       <div className="w-full">
         <>
           <InitiativeModal />
+          <SavingThrowModal />
         </>
         <Track />
         <CombatCard />

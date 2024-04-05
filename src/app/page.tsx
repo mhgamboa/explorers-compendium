@@ -26,7 +26,7 @@ export default async function Page({
   const monsterRes = await monsterCollection.find(dbQuery).limit(50).toArray();
   const monsterData = JSON.parse(JSON.stringify(monsterRes));
 
-  console.log(monsterData[0]?.Creator);
+  // console.log(monsterData[0]?.Creator);
   // const tagsRes = JSON.parse(JSON.stringify(collection.distinct("Tags")));
   // console.log(tagsRes);
 
@@ -35,12 +35,14 @@ export default async function Page({
       <Header />
       <main>
         <Search />
-        <section className="lg:col-span-3 px-4">
-          <div className="mx-auto rounded-2xl p-2 pt-10 space-y-5 max-w-5xl">
+        <section className="px-4 lg:col-span-3">
+          <div className="mx-auto max-w-5xl space-y-5 rounded-2xl p-2 pt-10">
             {monsterData.length > 0 ? (
-              monsterData.map((m: any) => <MonsterCard key={m._id} monster={m} />)
+              monsterData.map((m: any) => (
+                <MonsterCard key={m._id} monster={m} />
+              ))
             ) : (
-              <h1 className="w-full text-center text-4xl pt-5">
+              <h1 className="w-full pt-5 text-center text-4xl">
                 We couldn&apos;t find any items 🙁
               </h1>
             )}
