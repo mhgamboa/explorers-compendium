@@ -1,8 +1,7 @@
 import React from "react";
 import clientPromise from "@/lib/mongodb";
 
-import { Monster } from "@/types/monster";
-import { Player } from "@/types/player";
+import { Monster, Player } from "@/types/combatTypes";
 
 import InitiaizeState from "@/components/combat/InitializeState";
 import InitiativeModal from "@/components/combat/modal/initiative/InitiativeModal";

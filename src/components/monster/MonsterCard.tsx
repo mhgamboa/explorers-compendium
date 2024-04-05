@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import { Monster } from "@/types/monster";
+import { Monster } from "@/types/combatTypes";
 import MonsterStats from "@/components/monster/MonsterStats";
 import YellowBorder from "../ui/YellowBorder";
 

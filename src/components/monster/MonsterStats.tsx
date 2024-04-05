@@ -2,7 +2,7 @@ import React from "react";
 import TriangleDivider from "@/components/ui/TriangleDivider";
 import calculateModifier from "@/lib/monster/calculateAbilityScore";
 import calculateXP from "@/lib/monster/calculateXP";
-import { Monster } from "@/types/monster";
+import { Monster } from "@/types/combatTypes";
 // import { useAtomValue } from "jotai";
 // import { LoggedInAtom } from "@/atoms/atoms";
 

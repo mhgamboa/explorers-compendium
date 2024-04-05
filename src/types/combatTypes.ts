@@ -1,3 +1,14 @@
+export type Player = {
+  characterName: string;
+  playerName: string;
+  class?: string;
+  level?: number;
+  totalHp?: number;
+  ac?: number;
+  passivePerception?: number;
+  user_Id?: { $oid: string };
+};
+
 export type Monster = {
   _id: string;
   name: string;
@@ -56,3 +67,19 @@ export type Monster = {
   user_Id?: { $oid: string };
   tags: string[];
 };
+
+export type Encounter = {
+  combatant: Monster | Player;
+  type: "player" | "monster";
+  rolledInitiative: number;
+  currentHp: number;
+  status: string[];
+}[];
+
+export function isMonster(combatant: Monster | Player): combatant is Monster {
+  return (combatant as Monster).hasOwnProperty("name"); // Replace 'monsterProperty' with an actual property of Monster
+}
+
+export function isPlayer(combatant: Monster | Player): combatant is Player {
+  return (combatant as Player).hasOwnProperty("characterName"); // Replace 'playerProperty' with an actual property of Player
+}

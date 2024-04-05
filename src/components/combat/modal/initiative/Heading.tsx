@@ -1,6 +1,6 @@
 import React from "react";
 import { rollDice } from "@/lib/combat/rollDice";
-import { isMonster } from "@/types/encounter";
+import { isMonster } from "@/types/combatTypes";
 import { useCombatStore } from "@/store/combatStore";
 
 function Heading() {

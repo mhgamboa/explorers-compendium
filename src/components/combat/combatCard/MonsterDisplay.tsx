@@ -1,6 +1,6 @@
 import React from "react";
 import { useCombatStore } from "@/store/combatStore";
-import { Monster } from "@/types/monster";
+import { Monster } from "@/types/combatTypes";
 import TriangleDivider from "@/components/ui/TriangleDivider";
 import calculateModifier from "@/lib/monster/calculateAbilityScore";
 import calculateXP from "@/lib/monster/calculateXP";

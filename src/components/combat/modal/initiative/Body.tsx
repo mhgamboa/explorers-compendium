@@ -1,9 +1,7 @@
 import React from "react";
-import { isMonster, isPlayer } from "@/types/encounter";
+import { Monster, Player, isMonster, isPlayer } from "@/types/combatTypes";
 import { useCombatStore } from "@/store/combatStore";
-import calculateModifier from "@/lib/monster/calculateAbilityScore";
-import { Player } from "@/types/player";
-import { Monster } from "@/types/monster";
+// import calculateModifier from "@/lib/monster/calculateAbilityScore";
 
 export default function Body() {
   const combatants = useCombatStore((s) => s.combatants);

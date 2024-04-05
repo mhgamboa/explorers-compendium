@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useCallback } from "react";
 import { useCombatStore } from "@/store/combatStore";
-import { isMonster, isPlayer } from "@/types/encounter";
+import { isMonster, isPlayer } from "@/types/combatTypes";
 
 export default function Track() {
   const combatants = useCombatStore((state) => state.combatants);

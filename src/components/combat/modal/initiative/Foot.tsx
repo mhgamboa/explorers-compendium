@@ -18,7 +18,6 @@ export default function Foot() {
   };
   // prettier-ignore
   const closeInitiative = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    setInitiativeArray(combatants.map((c) => c.rolledInitiative));
     setView("main");
   };
 

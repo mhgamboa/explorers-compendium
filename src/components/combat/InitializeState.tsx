@@ -2,9 +2,7 @@
 import React, { ReactNode, useEffect } from "react";
 import useHandleKeyUp from "@/lib/combat/handleKeyUp";
 import { useCombatStore } from "@/store/combatStore";
-import { Monster } from "@/types/monster";
-import { Player } from "@/types/player";
-import { Encounter } from "@/types/encounter";
+import { Monster, Player, Encounter } from "@/types/combatTypes";
 
 type Props = {
   children: ReactNode;

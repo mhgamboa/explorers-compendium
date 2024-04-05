@@ -1,6 +1,6 @@
 import React from "react";
 import { useCombatStore } from "@/store/combatStore";
-import { Player } from "@/types/player";
+import { Player } from "@/types/combatTypes";
 import TriangleDivider from "@/components/ui/TriangleDivider";
 
 export default function PlayerDisplay() {
