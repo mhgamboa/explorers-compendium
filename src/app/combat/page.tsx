@@ -14,21 +14,24 @@ export default async function page() {
   const db = client.db("5e");
 
   const monsterCollection = db.collection("monsters");
-  const monsterRes = await monsterCollection.find({}).limit(50).toArray();
-
   const playerCollection = db.collection("players");
+
+  // monsterRes & playerRes to eventually be phased out by Encounter fetching
+  const monsterRes = await monsterCollection.find({}).limit(50).toArray();
   const playerRes = await playerCollection.find({}).limit(50).toArray();
 
   const monsterData: Monster[] = JSON.parse(JSON.stringify(monsterRes));
   const playerData: Player[] = JSON.parse(JSON.stringify(playerRes));
 
   return (
-    <div className="w-full">
-      <InitiaizeState monsterData={monsterData} playerData={playerData}>
-        <InitiativeModal />
+    <InitiaizeState monsterData={monsterData} playerData={playerData}>
+      <div className="w-full">
+        <>
+          <InitiativeModal />
+        </>
         <Track />
         <CombatCard />
-      </InitiaizeState>
-    </div>
+      </div>
+    </InitiaizeState>
   );
 }

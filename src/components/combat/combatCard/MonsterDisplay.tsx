@@ -30,7 +30,7 @@ function MonsterDisplay() {
     legendaryActions,
   } = combatant;
   return (
-    <div>
+    <>
       <div className="pb-2 text-2xl font-bold text-red-900">{name}</div>
       <TriangleDivider />
       {/* ac, hp, speed */}
@@ -191,7 +191,7 @@ function MonsterDisplay() {
           })}
         </div>
       )}
-    </div>
+    </>
   );
 }
 
