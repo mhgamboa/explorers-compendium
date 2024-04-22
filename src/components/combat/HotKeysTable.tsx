@@ -6,6 +6,7 @@ const hotkeyData = [
   { view: "Saving Throw", hotkey: "s" },
   { view: "Damage", hotkey: "d" },
   { view: "Exit Any View", hotkey: "esc" },
+  { view: "Roll Dice", hotkey: "Any Number" },
 ];
 
 export default function HotKeysTable() {

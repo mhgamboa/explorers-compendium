@@ -12,6 +12,8 @@ type CombatState = {
   initiativeArray: number[];
   selectedSavingThrow: SavingThrow;
   currentRoll: String;
+  rollDiceError: boolean;
+  rolls: number[];
 };
 
 type CombatActions = {
@@ -22,37 +24,40 @@ type CombatActions = {
   setInitiativeArray: (n: number[]) => void;
   setSelectedSavingThrow: (s: SavingThrow) => void;
   setCurrentRoll: (s: String) => void;
+  setRollDiceError: (e: boolean) => void;
+  setRolls: (e: number[]) => void;
 };
 
 export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
   view: "main",
-  setView: (view) => {
-    set({ view });
-  },
+  setView: (view) => set({ view }),
+
   combatants: [],
-  setCombatants: (combatants) => {
+  setCombatants: (combatants) =>
     set({
       combatants: combatants.sort(
         (a, b) => a.rolledInitiative - b.rolledInitiative,
       ),
-    });
-  },
+    }),
+
   index: 0,
-  setIndex: (n) => {
-    set({ index: n });
-  },
+  setIndex: (n) => set({ index: n }),
+
   syncInitiative: true,
-  toggleSyncInitiative: () => {
+  toggleSyncInitiative: () =>
     set((state) => ({
       syncInitiative: !state.syncInitiative,
-    }));
-  },
+    })),
+
   initiativeArray: [],
-  setInitiativeArray: (initiativeArray) => {
-    set({ initiativeArray });
-  },
+  setInitiativeArray: (initiativeArray) => set({ initiativeArray }),
   selectedSavingThrow: "",
   setSelectedSavingThrow: (selectedSavingThrow) => set({ selectedSavingThrow }),
+
   currentRoll: "",
   setCurrentRoll: (currentRoll) => set({ currentRoll }),
+  rollDiceError: false,
+  setRollDiceError: (rollDiceError) => set({ rollDiceError }),
+  rolls: [],
+  setRolls: (rolls) => set({ rolls }),
 }));
