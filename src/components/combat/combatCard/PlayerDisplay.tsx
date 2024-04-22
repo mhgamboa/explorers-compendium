@@ -21,27 +21,27 @@ export default function PlayerDisplay() {
       <TriangleDivider />
       {level && (
         <div id="hp">
-          <span className="font-medium">Level</span> {level}
+          <span className="font-bold">Level</span> {level}
         </div>
       )}
       {ac && (
         <div id="ac">
-          <span className="font-medium">Armor Class</span> {ac}
+          <span className="font-bold">Armor Class</span> {ac}
         </div>
       )}
       {totalHp && (
         <div id="hp">
-          <span className="font-medium">Total Health Points</span> {totalHp}
+          <span className="font-bold">Total Health Points</span> {totalHp}
         </div>
       )}
       {player.class && (
         <div id="class">
-          <span className="font-medium">Character Class</span> {player.class}
+          <span className="font-bold">Character Class</span> {player.class}
         </div>
       )}
       {passivePerception && (
         <div id="class">
-          <span className="font-medium">Passive Perception</span>{" "}
+          <span className="font-bold">Passive Perception</span>{" "}
           {passivePerception}
         </div>
       )}

@@ -2,8 +2,8 @@ import React from "react";
 import { useCombatStore } from "@/store/combatStore";
 import { Monster } from "@/types/combatTypes";
 import TriangleDivider from "@/components/ui/TriangleDivider";
-import calculateModifier from "@/lib/monster/calculateAbilityScore";
-import calculateXP from "@/lib/monster/calculateXP";
+import calculateModifier from "@/utils/monster/calculateAbilityScore";
+import calculateXP from "@/utils/monster/calculateXP";
 
 function MonsterDisplay() {
   const combatants = useCombatStore((state) => state.combatants);

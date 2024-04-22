@@ -1,6 +1,6 @@
 "use client";
 import React, { ReactNode, useEffect } from "react";
-import useHandleKeyUp from "@/lib/combat/handleKeyUp";
+import useHandleKeyUp from "@/hooks/combat/useHandleKeyUp";
 import { useCombatStore } from "@/store/combatStore";
 import { Monster, Player, Encounter } from "@/types/combatTypes";
 

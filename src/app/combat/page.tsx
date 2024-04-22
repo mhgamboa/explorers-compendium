@@ -8,6 +8,8 @@ import InitiativeModal from "@/components/combat/modal/initiative/InitiativeModa
 import Track from "@/components/combat/Track";
 import CombatCard from "@/components/combat/combatCard/CombatCard";
 import SavingThrowModal from "@/components/combat/modal/savingThrow/SavingThrowModal";
+import DamageModal from "@/components/combat/modal/damage/DamageModal";
+import HotKeysTable from "@/components/combat/HotKeysTable";
 
 export default async function page() {
   const client = await clientPromise;
@@ -28,10 +30,12 @@ export default async function page() {
       <div className="w-full">
         <>
           <InitiativeModal />
-          <SavingThrowModal />
+          {/* <SavingThrowModal /> */}
+          <DamageModal />
         </>
         <Track />
         <CombatCard />
+        <HotKeysTable />
       </div>
     </InitiaizeState>
   );

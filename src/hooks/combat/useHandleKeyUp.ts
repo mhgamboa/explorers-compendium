@@ -7,17 +7,24 @@ const useHandleKeyUp = (e: KeyboardEvent) => {
     useCombatStore.setState({ view: "main" });
   if (view === "main") handleMain(e.key);
   if (view === "initiative") handleInitiative(e.key);
+  if (view === "damage") handleDamage(e.key);
 };
 
 const handleMain = (key: string) => {
   if (key === "i" || key === "I")
     useCombatStore.setState({ view: "initiative" });
-  if (key === "s" || key === "S")
-    useCombatStore.setState({ view: "savingThrow" });
-  // if (key === "d" || key === "D") useCombatStore.setState({ view: "damage" });
+  if (key === "d" || key === "D") useCombatStore.setState({ view: "damage" });
+  // if (key === "s" || key === "S")
+  //   useCombatStore.setState({ view: "savingThrow" });
 };
 
 const handleInitiative = (key: string) => {
+  if (key === "Escape") {
+    useCombatStore.setState({ view: "main" });
+  }
+};
+
+const handleDamage = (key: string) => {
   if (key === "Escape") {
     useCombatStore.setState({ view: "main" });
   }

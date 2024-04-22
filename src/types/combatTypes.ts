@@ -1,3 +1,23 @@
+export const conditions = [
+  "",
+  "Blinded",
+  "Charmed",
+  "Deafened",
+  "Frightened",
+  "Grappled",
+  "Incapacitated",
+  "Invisible",
+  "Paralyzed",
+  "Petrified",
+  "Poisoned",
+  "Prone",
+  "Restrained",
+  "Stunned",
+  "Unconscious",
+  "Exhaustion",
+] as const;
+export type Condition = (typeof conditions)[number];
+
 export type Player = {
   characterName: string;
   playerName: string;

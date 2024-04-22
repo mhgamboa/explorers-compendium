@@ -1,7 +1,7 @@
 import React from "react";
 import TriangleDivider from "@/components/ui/TriangleDivider";
-import calculateModifier from "@/lib/monster/calculateAbilityScore";
-import calculateXP from "@/lib/monster/calculateXP";
+import calculateModifier from "@/utils/monster/calculateAbilityScore";
+import calculateXP from "@/utils/monster/calculateXP";
 import { Monster } from "@/types/combatTypes";
 
 export default function MonsterStats({ monster }: { monster: Monster }) {
