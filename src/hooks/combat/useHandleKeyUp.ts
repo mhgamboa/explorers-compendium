@@ -17,7 +17,8 @@ const handleMain = (key: string) => {
   if (key === "d" || key === "D") useCombatStore.setState({ view: "damage" });
 
   const isNumber = !isNaN(+key);
-  if (isNumber) useCombatStore.setState({ view: "roll", currentRoll: key });
+  if (isNumber && +key > 0)
+    useCombatStore.setState({ view: "roll", currentRoll: key });
   // if (key === "s" || key === "S")
   //   useCombatStore.setState({ view: "savingThrow" });
 };
