@@ -20,6 +20,7 @@ export default function InitializeState({
   const setInitiativeArray = useCombatStore(
     (state) => state.setInitiativeArray,
   );
+  const setDamage = useCombatStore((state) => state.setDamage);
 
   useEffect(() => {
     window.addEventListener("keyup", useHandleKeyUp);
@@ -43,6 +44,7 @@ export default function InitializeState({
       });
     });
     setInitiativeArray(arr.map((c) => c.rolledInitiative));
+    setDamage(arr.map((c) => 0));
     setCombatants(arr);
     return () => {
       window.removeEventListener("keyup", useHandleKeyUp);

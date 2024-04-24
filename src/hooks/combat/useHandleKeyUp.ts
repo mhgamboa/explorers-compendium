@@ -1,5 +1,6 @@
 import { useCombatStore } from "@/store/combatStore";
 import handleRoll from "./keyUp/handleRoll";
+import handleDamage from "./keyUp/handleDamage";
 
 const useHandleKeyUp = (e: KeyboardEvent) => {
   e.preventDefault();
@@ -24,12 +25,6 @@ const handleMain = (key: string) => {
 };
 
 const handleInitiative = (key: string) => {
-  if (key === "Escape") {
-    useCombatStore.setState({ view: "main" });
-  }
-};
-
-const handleDamage = (key: string) => {
   if (key === "Escape") {
     useCombatStore.setState({ view: "main" });
   }

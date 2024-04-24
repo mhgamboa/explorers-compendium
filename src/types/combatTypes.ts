@@ -88,6 +88,21 @@ export type Monster = {
   tags: string[];
 };
 
+// export type Encounter = {
+//   monsters: {
+//     combatant: Monster;
+//     rolledInitiative: number;
+//     currentHp: number;
+//     status: string[];
+//   }[];
+//   players: {
+//     combatant: Player;
+//     rolledInitiative: number;
+//     currentHp: number;
+//     status: string[];
+//   }[];
+// };
+
 export type Encounter = {
   combatant: Monster | Player;
   type: "player" | "monster";

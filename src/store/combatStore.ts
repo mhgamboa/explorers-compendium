@@ -14,6 +14,7 @@ type CombatState = {
   currentRoll: String;
   rollDiceError: boolean;
   rolls: number[];
+  damage: number[];
 };
 
 type CombatActions = {
@@ -26,6 +27,7 @@ type CombatActions = {
   setCurrentRoll: (s: String) => void;
   setRollDiceError: (e: boolean) => void;
   setRolls: (e: number[]) => void;
+  setDamage: (d: number[]) => void;
 };
 
 export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
@@ -60,4 +62,7 @@ export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
   setRollDiceError: (rollDiceError) => set({ rollDiceError }),
   rolls: [],
   setRolls: (rolls) => set({ rolls }),
+
+  damage: [],
+  setDamage: (damage) => set({ damage }),
 }));
