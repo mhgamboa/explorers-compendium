@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { isMonster } from "@/types/combatTypes";
 import { useCombatStore } from "@/store/combatStore";
 
@@ -33,7 +33,7 @@ export default function Body() {
   );
 }
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>, i: number) => {
+const handleChange = (e: ChangeEvent<HTMLInputElement>, i: number) => {
   e.preventDefault();
   let newNumber = e.target.value;
   if (isNaN(+newNumber)) return;
