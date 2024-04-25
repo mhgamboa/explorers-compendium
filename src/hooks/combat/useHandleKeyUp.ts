@@ -1,6 +1,7 @@
 import { useCombatStore } from "@/store/combatStore";
 import handleRoll from "./keyUp/handleRoll";
 import handleDamage from "./keyUp/handleDamage";
+import handleCondition from "./keyUp/handleCondition";
 
 const useHandleKeyUp = (e: KeyboardEvent) => {
   e.preventDefault();
@@ -8,18 +9,24 @@ const useHandleKeyUp = (e: KeyboardEvent) => {
   if (view === "main") handleMain(e.key);
   if (view === "initiative") handleInitiative(e.key);
   if (view === "damage") handleDamage(e.key);
+  if (view === "condition") handleCondition(e.key);
   if (view === "roll") handleRoll(e.key);
 };
 
 const handleMain = (key: string) => {
+  const isNumber = !isNaN(+key);
+
   if (key === "i" || key === "I")
     useCombatStore.setState({ view: "initiative" });
 
   if (key === "d" || key === "D") useCombatStore.setState({ view: "damage" });
 
-  const isNumber = !isNaN(+key);
   if (isNumber && +key > 0)
     useCombatStore.setState({ view: "roll", currentRoll: key });
+
+  // if (key === "c" || key === "C")
+  //   useCombatStore.setState({ view: "condition" });
+
   // if (key === "s" || key === "S")
   //   useCombatStore.setState({ view: "savingThrow" });
 };

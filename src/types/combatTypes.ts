@@ -108,7 +108,7 @@ export type Encounter = {
   type: "player" | "monster";
   rolledInitiative: number;
   currentHp: number;
-  status: string[];
+  status: Condition[];
 }[];
 
 export function isMonster(combatant: Monster | Player): combatant is Monster {

@@ -22,15 +22,16 @@ const handleRoll = (key: string) => {
     });
 
   if (key === "Enter") {
-    const regexp = /^\d?\d?d\d{1,}(?:(\+|\-)\d{1,2})?$/;
-    const arr = currentRoll.split(/(?:d|\+|\-)/gi);
+    const regexp = /^\d?\d?d\d{1,}(?:(\+|\-)\d{1,2})?$/; // Format: 11d20(+4) No spaces
 
     if (!currentRoll.match(regexp))
       return useCombatStore.setState({ rollDiceError: true });
-    console.log(arr);
-    if (+arr[0] > 25) return useCombatStore.setState({ rollDiceError: true });
-    if (+arr[1] > 100) return useCombatStore.setState({ rollDiceError: true });
-    if (+arr[2] > 50) return useCombatStore.setState({ rollDiceError: true });
+
+    const arr = currentRoll.split(/(?:d|\+|\-)/gi);
+
+    if (+arr[0] > 25) return useCombatStore.setState({ rollDiceError: true }); // No more than 25 dice
+    if (+arr[1] > 100) return useCombatStore.setState({ rollDiceError: true }); // Largest die size is a d100
+    if (+arr[2] > 50) return useCombatStore.setState({ rollDiceError: true }); // Largest Modifier is +/- 50
     const rolls = [];
 
     for (let i = 0; i < +arr[0]; i++) {

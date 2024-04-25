@@ -1,7 +1,13 @@
 import { create } from "zustand";
-import { Encounter } from "@/types/combatTypes";
+import { Encounter, conditions } from "@/types/combatTypes";
 
-export type View = "main" | "initiative" | "damage" | "roll" | "savingThrow";
+export type View =
+  | "main"
+  | "initiative"
+  | "damage"
+  | "roll"
+  | "savingThrow"
+  | "condition";
 export type SavingThrow = "" | "str" | "dex" | "con" | "int" | "wis" | "cha";
 
 type CombatState = {
