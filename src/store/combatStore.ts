@@ -21,6 +21,7 @@ type CombatState = {
   rollDiceError: boolean;
   rolls: number[];
   damage: number[];
+  mainHasFocus: boolean;
 };
 
 type CombatActions = {
@@ -34,6 +35,7 @@ type CombatActions = {
   setRollDiceError: (e: boolean) => void;
   setRolls: (e: number[]) => void;
   setDamage: (d: number[]) => void;
+  setMainHasFocus: (b: boolean) => void;
 };
 
 export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
@@ -71,4 +73,7 @@ export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
 
   damage: [],
   setDamage: (damage) => set({ damage }),
+
+  mainHasFocus: false,
+  setMainHasFocus: (mainHasFocus) => set({ mainHasFocus }),
 }));

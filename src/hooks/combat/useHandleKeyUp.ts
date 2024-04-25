@@ -14,6 +14,7 @@ const useHandleKeyUp = (e: KeyboardEvent) => {
 };
 
 const handleMain = (key: string) => {
+  const hasFocus = useCombatStore.getState().mainHasFocus;
   const isNumber = !isNaN(+key);
 
   if (key === "i" || key === "I")
@@ -21,7 +22,7 @@ const handleMain = (key: string) => {
 
   if (key === "d" || key === "D") useCombatStore.setState({ view: "damage" });
 
-  if (isNumber && +key > 0)
+  if (isNumber && +key > 0 && !hasFocus)
     useCombatStore.setState({ view: "roll", currentRoll: key });
 
   // if (key === "c" || key === "C")
