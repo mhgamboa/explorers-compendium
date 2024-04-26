@@ -11,7 +11,6 @@ import SavingThrowModal from "@/components/combat/modal/savingThrow/SavingThrowM
 import DamageModal from "@/components/combat/modal/damage/DamageModal";
 import HotKeysTable from "@/components/combat/HotKeysTable";
 import RollModal from "@/components/combat/modal/roll/RollModal";
-import ConditionModal from "@/components/combat/modal/condition/ConditionModal";
 
 export default async function page() {
   const client = await clientPromise;
@@ -32,10 +31,9 @@ export default async function page() {
       <div className="w-full">
         <>
           <InitiativeModal />
-          {/* <SavingThrowModal /> */}
+          <SavingThrowModal />
           <RollModal />
           <DamageModal />
-          <ConditionModal />
         </>
         <Track />
         <CurrentMonster />

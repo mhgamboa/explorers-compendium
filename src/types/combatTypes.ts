@@ -118,3 +118,16 @@ export function isMonster(combatant: Monster | Player): combatant is Monster {
 export function isPlayer(combatant: Monster | Player): combatant is Player {
   return (combatant as Player).hasOwnProperty("characterName"); // Replace 'playerProperty' with an actual property of Player
 }
+
+export type SavingThrowRollType = "Adv" | "Dis" | "Norm";
+export type SavingThrows = {
+  roll1: number;
+  roll2: number;
+  rolling: boolean;
+  rollType: SavingThrowRollType;
+}[];
+
+/* 
+Roll 1
+Roll 2
+*/

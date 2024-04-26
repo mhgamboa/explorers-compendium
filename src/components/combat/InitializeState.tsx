@@ -17,10 +17,9 @@ export default function InitializeState({
   children,
 }: Props) {
   const setCombatants = useCombatStore((state) => state.setCombatants);
-  const setInitiativeArray = useCombatStore(
-    (state) => state.setInitiativeArray,
-  );
+  const setInitiativeArray = useCombatStore((s) => s.setInitiativeArray);
   const setDamage = useCombatStore((state) => state.setDamage);
+  const setSavingThrows = useCombatStore((state) => state.setSavingThrows);
 
   useEffect(() => {
     window.addEventListener("keyup", useHandleKeyUp);
@@ -43,9 +42,18 @@ export default function InitializeState({
         status: [],
       });
     });
-    setInitiativeArray(arr.map((c) => c.rolledInitiative));
-    setDamage(arr.map((c) => 0));
     setCombatants(arr);
+
+    setInitiativeArray(arr.map((c) => c.rolledInitiative));
+    setDamage(arr.map(() => 0));
+    setSavingThrows(
+      arr.map(() => ({
+        roll1: 0,
+        roll2: 0,
+        rolling: false,
+        rollType: "Norm",
+      })),
+    );
     return () => {
       window.removeEventListener("keyup", useHandleKeyUp);
     };

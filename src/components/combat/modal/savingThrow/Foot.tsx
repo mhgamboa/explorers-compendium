@@ -1,6 +1,5 @@
 import React from "react";
 import { useCombatStore } from "@/store/combatStore";
-import { ChildProps } from "./SavingThrowModal";
 
 export default function Foot() {
   const setView = useCombatStore((s) => s.setView);

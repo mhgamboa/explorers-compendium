@@ -51,7 +51,7 @@ const HPInput = () => {
   };
   return (
     <input
-      className="w-content w-12 rounded border"
+      className="w-content w-12 rounded border pl-1"
       type="number"
       name="currentHp"
       id="currentHp"

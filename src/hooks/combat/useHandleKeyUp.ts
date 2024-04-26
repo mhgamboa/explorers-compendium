@@ -25,11 +25,8 @@ const handleMain = (key: string) => {
   if (isNumber && +key > 0 && !hasFocus)
     useCombatStore.setState({ view: "roll", currentRoll: key });
 
-  // if (key === "c" || key === "C")
-  //   useCombatStore.setState({ view: "condition" });
-
-  // if (key === "s" || key === "S")
-  //   useCombatStore.setState({ view: "savingThrow" });
+  if (key === "s" || key === "S")
+    useCombatStore.setState({ view: "savingThrow" });
 };
 
 const handleInitiative = (key: string) => {

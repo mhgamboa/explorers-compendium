@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Encounter, conditions } from "@/types/combatTypes";
+import { Encounter, SavingThrows, Condition } from "@/types/combatTypes";
 
 export type View =
   | "main"
@@ -8,6 +8,7 @@ export type View =
   | "roll"
   | "savingThrow"
   | "condition";
+
 export type SavingThrow = "" | "str" | "dex" | "con" | "int" | "wis" | "cha";
 
 type CombatState = {
@@ -22,6 +23,10 @@ type CombatState = {
   rolls: number[];
   damage: number[];
   mainHasFocus: boolean;
+  DC: number;
+  savingThrowType: SavingThrow;
+  savingThrows: SavingThrows;
+  savingThrowCondition: Condition;
 };
 
 type CombatActions = {
@@ -36,6 +41,10 @@ type CombatActions = {
   setRolls: (e: number[]) => void;
   setDamage: (d: number[]) => void;
   setMainHasFocus: (b: boolean) => void;
+  setDC: (b: number) => void;
+  setSavingThrowType: (b: SavingThrow) => void;
+  setSavingThrows: (b: SavingThrows) => void;
+  setSavingThrowCondition: (b: Condition) => void;
 };
 
 export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
@@ -76,4 +85,14 @@ export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
 
   mainHasFocus: false,
   setMainHasFocus: (mainHasFocus) => set({ mainHasFocus }),
+
+  DC: 0,
+  setDC: (DC) => set({ DC }),
+  savingThrowType: "",
+  setSavingThrowType: (savingThrowType) => set({ savingThrowType }),
+  savingThrows: [],
+  setSavingThrows: (savingThrows) => set({ savingThrows }),
+  savingThrowCondition: "",
+  setSavingThrowCondition: (savingThrowCondition) =>
+    set({ savingThrowCondition }),
 }));
