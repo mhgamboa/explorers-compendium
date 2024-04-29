@@ -2,6 +2,7 @@ import { useCombatStore } from "@/store/combatStore";
 import handleRoll from "./keyUp/handleRoll";
 import handleDamage from "./keyUp/handleDamage";
 import handleCondition from "./keyUp/handleCondition";
+import handleSavingThrow from "./keyUp/handleSavingThrow";
 
 const useHandleKeyUp = (e: KeyboardEvent) => {
   e.preventDefault();
@@ -11,6 +12,7 @@ const useHandleKeyUp = (e: KeyboardEvent) => {
   if (view === "damage") handleDamage(e.key);
   if (view === "condition") handleCondition(e.key);
   if (view === "roll") handleRoll(e.key);
+  if (view === "savingThrow") handleSavingThrow(e.key);
 };
 
 const handleMain = (key: string) => {

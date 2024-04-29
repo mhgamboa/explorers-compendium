@@ -13,8 +13,8 @@ export default function Body() {
   };
 
   return (
-    <div className="flex flex-col pb-2 ">
-      <div className="flex flex-wrap justify-center gap-2 overflow-scroll py-6 sm:overflow-auto">
+    <div className="flex flex-col pb-2">
+      <div className="no-scrollbar flex max-h-[55svh] flex-wrap justify-center gap-2 overflow-scroll py-6">
         {combatants.map((c, i) => {
           if (isPlayer(c.combatant)) return;
           return <Card i={i} key={i} monster={c.combatant} />;

@@ -54,11 +54,10 @@ export default function Cards({ i, monster }: { i: number; monster: Monster }) {
 
   return (
     <div
-      className={`flex w-48 cursor-pointer flex-col items-center justify-between gap-1 rounded border-2 px-2 py-4 text-center ${rolling && "bg-slate-200"}`}
+      className={`flex max-h-64 w-48 cursor-pointer flex-col items-center justify-between gap-1 rounded border-2 p-2 text-center ${rolling && "bg-slate-200"}`}
       onClick={handleClick}
     >
-      {roll}
-      <div className="h-16">{monster.name}</div>
+      <div className="">{monster.name}</div>
       <div className="h-4 text-xs text-gray-400">
         {STType &&
           `(${+abilityScore > 0 ? `+${abilityScore}` : abilityScore} ${STType})`}
@@ -97,10 +96,14 @@ export default function Cards({ i, monster }: { i: number; monster: Monster }) {
           );
         })}
       </div>
-      <div className="h-6 pt-4">
+      <div className="h-6">
         {rolling && (
           <>
-            {roll}
+            <span
+              className={`${roll === 20 && "font-bold text-green-900"} ${roll === 1 && "font-bold text-red-900"}`}
+            >
+              {roll}
+            </span>
             {STType &&
               `${+abilityScore >= 0 ? `+${abilityScore}` : abilityScore}`}
             {STType &&
@@ -109,7 +112,7 @@ export default function Cards({ i, monster }: { i: number; monster: Monster }) {
           </>
         )}
       </div>
-      <div className="h-6 pt-3">
+      <div className="h-6">
         {rolling &&
           typeof abilityScore !== "boolean" &&
           (roll + abilityScore >= DC ? "Pass" : "Fail")}
