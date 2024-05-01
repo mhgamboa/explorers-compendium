@@ -23,10 +23,12 @@ type CombatState = {
   rolls: number[];
   damage: number[];
   mainHasFocus: boolean;
+
   DC: number;
   savingThrowType: SavingThrow;
   savingThrows: SavingThrows;
   savingThrowCondition: Condition;
+  savingThrowDamage: number;
 };
 
 type CombatActions = {
@@ -41,10 +43,12 @@ type CombatActions = {
   setRolls: (e: number[]) => void;
   setDamage: (d: number[]) => void;
   setMainHasFocus: (b: boolean) => void;
+
   setDC: (b: number) => void;
   setSavingThrowType: (b: SavingThrow) => void;
   setSavingThrows: (b: SavingThrows) => void;
   setSavingThrowCondition: (b: Condition) => void;
+  setSavingThrowDamage: (b: number) => void;
 };
 
 export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
@@ -95,4 +99,6 @@ export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
   savingThrowCondition: "",
   setSavingThrowCondition: (savingThrowCondition) =>
     set({ savingThrowCondition }),
+  savingThrowDamage: 0,
+  setSavingThrowDamage: (savingThrowDamage) => set({ savingThrowDamage }),
 }));

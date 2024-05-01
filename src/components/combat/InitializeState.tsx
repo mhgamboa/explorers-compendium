@@ -52,6 +52,7 @@ export default function InitializeState({
         roll2: 0,
         rolling: false,
         rollType: "Norm",
+        damage: "Full",
       })),
     );
     return () => {

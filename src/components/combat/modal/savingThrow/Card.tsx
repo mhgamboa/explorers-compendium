@@ -1,17 +1,24 @@
 import React, { ChangeEvent, MouseEvent } from "react";
 import calculateModifier from "@/utils/monster/calculateAbilityScore";
 import { useCombatStore } from "@/store/combatStore";
-import { SavingThrowRollType, Monster } from "@/types/combatTypes";
+import {
+  SavingThrowRollType,
+  Monster,
+  SavingThrowDamage,
+} from "@/types/combatTypes";
+
+const damageArr: SavingThrowDamage[] = ["Half", "Full", "Quarter"];
 
 export default function Cards({ i, monster }: { i: number; monster: Monster }) {
   const STType = useCombatStore((s) => s.savingThrowType);
   const DC = useCombatStore((s) => s.DC);
+  const STDamage = useCombatStore((s) => s.savingThrowDamage);
+  const SetSTDamage = useCombatStore((s) => s.setSavingThrowDamage);
   const condition = useCombatStore((s) => s.savingThrowCondition);
   const conditionImmunities = monster.conditionImmunities;
-
   const savingThrows = useCombatStore((s) => s.savingThrows);
   const setSavingThrows = useCombatStore((s) => s.setSavingThrows);
-  const { rolling, roll1, roll2, rollType } = savingThrows[i];
+  const { rolling, roll1, roll2, rollType, damage } = savingThrows[i];
 
   const handleClick = (
     e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>,
@@ -28,6 +35,8 @@ export default function Cards({ i, monster }: { i: number; monster: Monster }) {
     roll === "roll1"
       ? (newST[i].roll1 = +e.target.value)
       : (newST[i].roll2 = +e.target.value);
+    newST[i].rolling === false && (newST[i].rolling = true);
+
     setSavingThrows(newST);
   };
 
@@ -43,7 +52,7 @@ export default function Cards({ i, monster }: { i: number; monster: Monster }) {
   };
 
   const abilityScore =
-    STType !== "" && calculateModifier(monster.abilities[STType]);
+    STType !== "" ? calculateModifier(monster.abilities[STType]) : 0;
 
   const roll =
     rollType === "Norm"
@@ -52,9 +61,21 @@ export default function Cards({ i, monster }: { i: number; monster: Monster }) {
         ? Math.min(roll1, roll2)
         : Math.max(roll1, roll2);
 
+  const finalRoll = roll + abilityScore;
+  const result = finalRoll >= DC ? "Pass" : "Fail";
+
+  let finalDamage =
+    result === "Pass"
+      ? 0
+      : damage === "Half"
+        ? Math.floor(STDamage / 2)
+        : damage === "Quarter"
+          ? Math.floor(STDamage / 4)
+          : STDamage;
+
   return (
     <div
-      className={`flex max-h-64 w-48 cursor-pointer flex-col items-center justify-between gap-1 rounded border-2 p-2 text-center ${rolling && "bg-slate-200"}`}
+      className={`flex max-h-96 w-48 cursor-pointer flex-col items-center justify-between gap-1 rounded border-2 p-2 text-center ${rolling && "bg-slate-200"}`}
       onClick={handleClick}
     >
       <div className="">{monster.name}</div>
@@ -106,16 +127,34 @@ export default function Cards({ i, monster }: { i: number; monster: Monster }) {
             </span>
             {STType &&
               `${+abilityScore >= 0 ? `+${abilityScore}` : abilityScore}`}
-            {STType &&
-              typeof abilityScore !== "boolean" &&
-              `=${roll + abilityScore}`}
+            {STType && `=${finalRoll}`}
           </>
         )}
       </div>
+      <div className="h-6">{rolling && `${finalDamage} damage`}</div>
       <div className="h-6">
         {rolling &&
-          typeof abilityScore !== "boolean" &&
-          (roll + abilityScore >= DC ? "Pass" : "Fail")}
+          (conditionImmunities.indexOf(condition.toLowerCase()) >= 0
+            ? `${condition} (immune)`
+            : condition)}
+      </div>
+      <div className="flex gap-x-2">
+        {damageArr.map((d, ind) => {
+          return (
+            <div
+              className={`flex cursor-pointer items-center rounded px-2 py-1 ${damage === d && "bg-red-800 text-white"}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                const newST = [...savingThrows];
+                newST[i].damage = d;
+                setSavingThrows(newST);
+              }}
+              key={d}
+            >
+              {d}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
