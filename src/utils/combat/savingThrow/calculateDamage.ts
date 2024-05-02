@@ -1,11 +1,11 @@
 import { SavingThrowDamage } from "@/types/combatTypes";
 
-const calculateFinalDamage = (
+const calculateDamage = (
   result: "Pass" | "Fail",
   damage: SavingThrowDamage,
   damageAmount: number,
 ) => {
-  return result === "Pass"
+  return damage === "None"
     ? 0
     : damage === "Half"
       ? Math.floor(damageAmount / 2)
@@ -14,4 +14,4 @@ const calculateFinalDamage = (
         : damageAmount;
 };
 
-export default calculateFinalDamage;
+export default calculateDamage;

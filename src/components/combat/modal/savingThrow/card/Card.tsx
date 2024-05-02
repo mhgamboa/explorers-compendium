@@ -71,7 +71,9 @@ export default function Cards({ i, monster }: { i: number; monster: Monster }) {
           </>
         )}
       </div>
-      <div className="h-6">{rolling && `${finalDamage} damage`}</div>
+      <div className="h-6">
+        {rolling && finalDamage > 0 && `${finalDamage} damage`}
+      </div>
       <div className="h-6">
         {rolling &&
           (conditionImmunities.indexOf(condition.toLowerCase()) >= 0

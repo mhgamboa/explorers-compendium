@@ -10,7 +10,7 @@ const handleSavingThrow = (key: string) => {
         roll2: 0,
         rolling: false,
         rollType: "Norm",
-        damage: "",
+        damageAmount: "None",
       })),
     });
   }
