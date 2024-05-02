@@ -120,14 +120,14 @@ export function isPlayer(combatant: Monster | Player): combatant is Player {
 }
 
 export type SavingThrowRollType = "Adv" | "Dis" | "Norm";
-export type SavingThrowDamage = "Full" | "Half" | "Quarter";
+export type SavingThrowDamage = "Full" | "Half" | "Quarter" | "None";
 
 export type SavingThrows = {
   roll1: number;
   roll2: number;
   rolling: boolean;
   rollType: SavingThrowRollType;
-  damage: "" | "Full" | "Half" | "Quarter";
+  damageAmount: SavingThrowDamage;
 }[];
 
 /* 

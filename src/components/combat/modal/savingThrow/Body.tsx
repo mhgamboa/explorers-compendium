@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { useCombatStore } from "@/store/combatStore";
 import { isPlayer, conditions, Condition } from "@/types/combatTypes";
-import Card from "./Card";
+import Card from "./card/Card";
 
 export default function Body() {
   const combatants = useCombatStore((s) => s.combatants);

@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useEffect, useRef } from "react";
 import { useCombatStore, SavingThrow } from "@/store/combatStore";
 import { rollDice } from "@/utils/combat/rollDice";
 
@@ -16,9 +16,16 @@ export default function Heading() {
   const setSavingThrowType = useCombatStore((s) => s.setSavingThrowType);
   const setSavingThrows = useCombatStore((s) => s.setSavingThrows);
   const savingThrows = useCombatStore((s) => s.savingThrows);
+  const view = useCombatStore((s) => s.view);
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const DC = useCombatStore((s) => s.DC);
   const setDC = useCombatStore((s) => s.setDC);
+
+  useEffect(() => {
+    if (view === "savingThrow") inputRef?.current?.focus();
+  }, [view]);
 
   const rollSavingThrows = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
@@ -43,6 +50,7 @@ export default function Heading() {
         </label>
         <input
           type="number"
+          ref={inputRef}
           name="DC"
           id="DC"
           className="w-36 rounded border px-2 py-1"
