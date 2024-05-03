@@ -2,7 +2,7 @@ import React from "react";
 import { useCombatStore } from "@/store/combatStore";
 import calculateDamage from "@/utils/combat/savingThrow/calculateDamage";
 import calculateModifier from "@/utils/monster/calculateAbilityScore";
-import { Ole } from "next/font/google";
+import resetSavingThrows from "@/utils/combat/savingThrow/resetSavingThrows";
 import { Condition, isPlayer } from "@/types/combatTypes";
 import determineRoll from "@/utils/combat/savingThrow/determineRoll";
 
@@ -41,6 +41,7 @@ export default function Foot() {
       return { ...c, currentHp: c.currentHp - finalDamage, status };
     });
     setCombatants(newCombatants);
+    resetSavingThrows();
     setView("main");
   };
 
@@ -49,6 +50,7 @@ export default function Foot() {
   ) => {
     e.preventDefault();
     setView("main");
+    resetSavingThrows();
   };
   return (
     <div className="flex justify-end gap-x-4 border-t-2 pt-2">

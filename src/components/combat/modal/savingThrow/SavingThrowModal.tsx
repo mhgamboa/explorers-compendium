@@ -9,7 +9,7 @@ import Foot from "./Foot";
 
 export default function SavingThrowModal() {
   const view = useCombatStore((state) => state.view);
-
+  console.log("hi");
   if (view !== "savingThrow") return;
 
   return (
