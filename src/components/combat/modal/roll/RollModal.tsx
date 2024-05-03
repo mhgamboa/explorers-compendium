@@ -9,7 +9,6 @@ export default function RollModal() {
   const error = useCombatStore((state) => state.rollDiceError);
 
   if (view !== "roll") return;
-
   return (
     <div className="fixed inset-0 z-10 m-auto flex h-fit w-fit flex-col justify-between gap-7 rounded bg-slate-950 bg-opacity-80 p-5 backdrop-blur-sm">
       <div className="w-full text-center">
@@ -25,8 +24,6 @@ export default function RollModal() {
         <div>
           (No spaces. Max dice of 25d100. Modifier is Optional, and must be ≤
           50)
-          {/* (No spaces. Max dice 25d100. Modifier is Optional, and
-          can be no larger than 50) */}
         </div>
       </div>
       <div className="w-full text-center text-4xl text-white sm:text-5xl lg:text-6xl">

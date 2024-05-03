@@ -19,6 +19,7 @@ const handleRoll = (key: string) => {
     useCombatStore.setState({
       currentRoll: currentRoll.slice(0, -1),
       view: currentRoll.slice(0, -1) === "" ? "main" : "roll",
+      rollDiceError: false,
     });
 
   if (key === "Enter") {
@@ -28,7 +29,6 @@ const handleRoll = (key: string) => {
       return useCombatStore.setState({ rollDiceError: true });
 
     const arr = currentRoll.split(/(?:d|\+|\-)/gi);
-
     if (+arr[0] > 25) return useCombatStore.setState({ rollDiceError: true }); // No more than 25 dice
     if (+arr[1] > 100) return useCombatStore.setState({ rollDiceError: true }); // Largest die size is a d100
     if (+arr[2] > 50) return useCombatStore.setState({ rollDiceError: true }); // Largest Modifier is +/- 50
@@ -38,9 +38,10 @@ const handleRoll = (key: string) => {
       rolls.push(rollDice(+arr[1]));
     }
 
-    typeof +arr[2] === "number" && currentRoll.includes("-")
-      ? rolls.push(-+arr[2])
-      : rolls.push(+arr[2]);
+    if (arr.length === 2)
+      return useCombatStore.setState({ rollDiceError: false, rolls });
+
+    currentRoll.includes("-") ? rolls.push(-+arr[2]) : rolls.push(+arr[2]);
     useCombatStore.setState({ rollDiceError: false, rolls });
   }
 };
