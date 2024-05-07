@@ -5,6 +5,8 @@ import handleRoll from "@/hooks/combat/keyUp/handleRoll";
 export default function RollDiceButton({ input }: { input: string }) {
   const setView = useCombatStore((s) => s.setView);
   const setCurrentRoll = useCombatStore((s) => s.setCurrentRoll);
+  // console.log("input:");
+  // console.log(input);
 
   const handleClick = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
@@ -15,13 +17,12 @@ export default function RollDiceButton({ input }: { input: string }) {
     handleRoll("Enter");
     setView("roll");
   };
-
   return (
     <button
       onClick={handleClick}
       className="rounded border border-red-700 bg-white bg-opacity-75 px-0.5"
     >
-      ({input})
+      {input}
     </button>
   );
 }
