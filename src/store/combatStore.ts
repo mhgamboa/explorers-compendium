@@ -17,7 +17,6 @@ type CombatState = {
   index: number;
   syncInitiative: boolean;
   initiativeArray: number[];
-  selectedSavingThrow: SavingThrow;
   currentRoll: String;
   rollDiceError: boolean;
   rolls: number[];
@@ -37,7 +36,6 @@ type CombatActions = {
   setIndex: (n: number) => void;
   toggleSyncInitiative: () => void;
   setInitiativeArray: (n: number[]) => void;
-  setSelectedSavingThrow: (s: SavingThrow) => void;
   setCurrentRoll: (s: String) => void;
   setRollDiceError: (e: boolean) => void;
   setRolls: (e: number[]) => void;
@@ -74,8 +72,6 @@ export const useCombatStore = create<CombatState & CombatActions>()((set) => ({
 
   initiativeArray: [],
   setInitiativeArray: (initiativeArray) => set({ initiativeArray }),
-  selectedSavingThrow: "",
-  setSelectedSavingThrow: (selectedSavingThrow) => set({ selectedSavingThrow }),
 
   currentRoll: "",
   setCurrentRoll: (currentRoll) => set({ currentRoll }),

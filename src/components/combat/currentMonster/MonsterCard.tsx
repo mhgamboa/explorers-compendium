@@ -1,14 +1,20 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import { useCombatStore } from "@/store/combatStore";
+import handleRoll from "@/hooks/combat/keyUp/handleRoll";
+
 import { Monster } from "@/types/combatTypes";
 import TriangleDivider from "@/components/ui/TriangleDivider";
 import calculateModifier from "@/utils/monster/calculateAbilityScore";
 import calculateXP from "@/utils/monster/calculateXP";
+import RollDiceButton from "@/components/ui/RollDiceButton";
 
 function MonsterDisplay() {
   const combatants = useCombatStore((state) => state.combatants);
+  const setCurrentRoll = useCombatStore((state) => state.setCurrentRoll);
+  const setView = useCombatStore((state) => state.setView);
   const index = useCombatStore((state) => state.index);
   const combatant = combatants[index].combatant as Monster;
+
   const {
     name,
     ac,
@@ -29,6 +35,7 @@ function MonsterDisplay() {
     reactions,
     legendaryActions,
   } = combatant;
+
   return (
     <>
       <div className="pb-2 text-2xl font-bold text-red-900">{name}</div>
@@ -150,11 +157,25 @@ function MonsterDisplay() {
       <div id="actions" className="py-2">
         <h3 className="text-2xl font-light text-red-900">Actions</h3>
         <hr className="border-black" />
+        <RollDiceButton input="2d8+4" />
         {actions.map((a) => {
+          const regexp = /\(\d?\d?d\d{1,}(?:(\s\+|\-)\s\d{1,2})?\)/gm;
+          // const newContent = a.content.replaceAll(
+          //   regexp,
+          //   (matchedString) => `
+          //     <button
+          //     onClick={handleClick}
+          //     className="rounded border border-red-700 bg-white bg-opacity-75 px-0.5"
+          //     >
+          //       ${matchedString}
+          //     </button>`,
+          // );
           return (
             <div className="pt-4" key={a.name}>
               <span className="font-semibold italic">{a.name}. </span>{" "}
-              {a.content}
+              <span>{a.content}</span>
+              {/* <span dangerouslySetInnerHTML={{ __html: a.content }} /> */}
+              {/* <span dangerouslySetInnerHTML={{ __html: newContent }} /> */}
             </div>
           );
         })}

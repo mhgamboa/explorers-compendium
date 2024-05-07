@@ -1,7 +1,5 @@
 "use client";
-import { useState, Dispatch, SetStateAction } from "react";
-import { useCombatStore, SavingThrow } from "@/store/combatStore";
-import { Condition } from "@/types/combatTypes";
+import { useCombatStore } from "@/store/combatStore";
 import ModalWrapper from "@/components/ui/ModalWrapper";
 import Heading from "./Heading";
 import Body from "./Body";
@@ -9,7 +7,6 @@ import Foot from "./Foot";
 
 export default function SavingThrowModal() {
   const view = useCombatStore((state) => state.view);
-  console.log("hi");
   if (view !== "savingThrow") return;
 
   return (

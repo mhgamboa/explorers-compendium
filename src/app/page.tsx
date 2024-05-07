@@ -25,10 +25,7 @@ export default async function Page({
   const monsterCollection = db.collection("monsters");
   const monsterRes = await monsterCollection.find(dbQuery).limit(50).toArray();
   const monsterData = JSON.parse(JSON.stringify(monsterRes));
-
-  // console.log(monsterData[0]?.Creator);
   // const tagsRes = JSON.parse(JSON.stringify(collection.distinct("Tags")));
-  // console.log(tagsRes);
 
   return (
     <>
