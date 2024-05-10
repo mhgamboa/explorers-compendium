@@ -6,14 +6,14 @@ const parse = (input: string) => {
   const arr = input.split(/\n/gm);
 
   const ac = parseAC(input);
-  const hp = parseHP;
+  const hp = parseHP(input);
 
   return;
   return {
     name: arr[0],
     source: "",
     type: arr[1],
-    // hp,
+    hp,
     ac,
   } as Monster;
 };

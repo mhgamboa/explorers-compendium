@@ -9,7 +9,6 @@ function parseAC(input: string) {
 
   return { value, notes };
 }
-
 export default parseAC;
 
 const parseValue = (string: string) => {
