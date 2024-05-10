@@ -71,17 +71,9 @@ export type Monster = {
     name: string;
     content: string;
   }[];
-  actions: {
-    name: string;
-    content: string;
-  }[];
-  reactions: {
-    name: string;
-    content: string;
-  }[];
-  legendaryActions: {
-    name: string;
-    content: string;
+  actions2: {
+    title: string;
+    content: { name: string; description: string }[];
   }[];
   description: string;
   user_Id?: { $oid: string };
