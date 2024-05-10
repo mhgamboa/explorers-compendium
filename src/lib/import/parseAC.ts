@@ -19,7 +19,9 @@ const parseValue = (string: string) => {
 };
 
 const parseNotes = (string: string) => {
-  const notesMatch = string.match(/\(.+\)/);
-  if (!notesMatch) return;
+  const regExp: RegExp = /(?<=\d+\s).+/;
+  const notesMatch = string.match(regExp);
+
+  if (!notesMatch) return "";
   return notesMatch[0] ? notesMatch[0] : "";
 };
