@@ -42,7 +42,6 @@ export type Monster = {
     value: number;
     notes: string;
   };
-  // initiativeModifier: number;
   speed: string[];
   abilities: {
     str: number;
@@ -67,11 +66,13 @@ export type Monster = {
   senses: string[];
   languages: string[];
   challenge: string;
+  // I am here
+  // Goal
   traits: {
     name: string;
     content: string;
   }[];
-  actions2: {
+  actions: {
     title: string;
     content: { name: string; description: string }[];
   }[];
