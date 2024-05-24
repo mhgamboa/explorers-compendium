@@ -1,6 +1,6 @@
 export default function parseAbilities(input: string) {
   // On this string: "20 (+\-\−5) " match the "20"
-  const regExp: RegExp = /\d{1,2}(?=\s\([\+\-\−]\d\)\s)/g;
+  const regExp: RegExp = /\d{1,2}(?=\s\([\+\-\−]\d{1,2}\)\s)/g;
   const modifiersMatch = input.match(regExp);
 
   if (!modifiersMatch || modifiersMatch.length !== 6)

@@ -12,7 +12,6 @@ export default function RollDiceButton({ input }: { input: string }) {
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
   ) => {
     e.preventDefault();
-    console.log("click");
     setCurrentRoll(input);
     handleRoll("Enter");
     setView("roll");

@@ -4,7 +4,11 @@ import calculateModifier from "@/utils/monster/calculateAbilityScore";
 import calculateXP from "@/utils/monster/calculateXP";
 import { Monster } from "@/types/combatTypes";
 
-export default function MonsterStats({ monster }: { monster: Monster }) {
+type Props = {
+  monster: Monster;
+};
+
+export default function MonsterStats({ monster }: Props) {
   const {
     name,
     ac,
@@ -22,8 +26,6 @@ export default function MonsterStats({ monster }: { monster: Monster }) {
     challenge,
     traits,
     actions,
-    reactions,
-    legendaryActions,
   } = monster;
 
   return (
@@ -46,11 +48,13 @@ export default function MonsterStats({ monster }: { monster: Monster }) {
         {Object.entries(abilities).map((keyVal) => {
           const ability = keyVal[0];
           const abilityScore = keyVal[1];
+          const modifier = calculateModifier(abilityScore);
           return (
             <div key={ability} className="flex w-1/6 flex-col items-center">
               <div className="font-bold">{ability}</div>
               <div>
-                <span>{abilityScore}</span> ({calculateModifier(abilityScore)})
+                <span>{abilityScore}</span> (
+                {modifier > 0 ? `+${modifier}` : modifier})
               </div>
             </div>
           );
@@ -138,56 +142,36 @@ export default function MonsterStats({ monster }: { monster: Monster }) {
         {traits.map((t) => {
           return (
             <div key={t.name}>
-              <span className="font-semibold italic">{t.name}</span> {t.content}
+              <span className="font-semibold italic">{t.name}.</span>{" "}
+              {t.description}
             </div>
           );
         })}
       </div>
       {/* actions */}
-      <div id="actions" className="py-2">
-        <h3 className="text-2xl font-light text-red-900">Actions</h3>
-        <hr className="border-black" />
-        {actions.map((a) => {
-          return (
-            <div className="pt-4" key={a.name}>
-              <span className="font-semibold italic">{a.name}. </span>{" "}
-              {a.content}
+      {actions.map((a, i) => {
+        return (
+          <div id="actions" className="py-2" key={a.title}>
+            <h3 className="text-2xl font-light text-red-900">{a.title}</h3>
+            <hr className="border-black" />
+            <div className="pt-4">
+              {a.content.map((d, i) => {
+                return (
+                  <React.Fragment key={i}>
+                    <div>
+                      {d.name && (
+                        <span className="font-semibold italic">{d.name}. </span>
+                      )}
+                      {d.description}
+                    </div>
+                    <br />
+                  </React.Fragment>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
-      {/* reactions */}
-      {reactions.length > 0 && (
-        <div id="actions" className="py-2">
-          <h3 className="text-2xl font-light text-red-900">Reactions</h3>
-          <hr className="border-black" />
-          {reactions.map((a) => {
-            return (
-              <div className="pt-4" key={a.name}>
-                <span className="font-semibold italic">{a.name}. </span>{" "}
-                {a.content}
-              </div>
-            );
-          })}
-        </div>
-      )}
-      {/* legendary actions */}
-      {legendaryActions.length > 0 && (
-        <div id="actions" className="py-2">
-          <h3 className="text-2xl font-light text-red-900">
-            Legendary Actions
-          </h3>
-          <hr className="border-black" />
-          {legendaryActions.map((a) => {
-            return (
-              <div className="pt-4" key={a.name}>
-                <span className="font-semibold italic">{a.name}. </span>{" "}
-                {a.content}
-              </div>
-            );
-          })}
-        </div>
-      )}
+          </div>
+        );
+      })}
     </div>
   );
 }

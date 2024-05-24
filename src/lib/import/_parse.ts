@@ -8,6 +8,7 @@ import parseSavingThrows from "./parseSavingThrows";
 import parseSkills from "./parseSkills";
 import parseCommas from "./parseSenses";
 import parseChallenge from "./parseChallenge";
+import parseTraitActions from "./parseTraitsActions";
 
 const parse = (input: string) => {
   const arr = input.split(/\n/gm);
@@ -25,8 +26,8 @@ const parse = (input: string) => {
   const senses = parseCommas(input, "Senses");
   const languages = parseCommas(input, "Languages");
   const challenge = parseChallenge(input);
+  const { traits, actions } = parseTraitActions(arr);
 
-  return;
   return {
     name: arr[0],
     source: "",
@@ -44,6 +45,10 @@ const parse = (input: string) => {
     senses,
     languages,
     challenge,
+    traits,
+    actions,
+    description: "",
+    tags: ["angel", "beast", "Boss"],
   } as Monster;
 };
 

@@ -66,19 +66,19 @@ export type Monster = {
   senses: string[];
   languages: string[];
   challenge: string;
-  // I am here
-  // Goal
   traits: {
     name: string;
-    content: string;
+    description: string;
   }[];
   actions: {
     title: string;
     content: { name: string; description: string }[];
   }[];
+  // I am here
   description: string;
-  user_Id?: { $oid: string };
   tags: string[];
+  // Goal
+  user_Id?: { $oid: string };
 };
 
 // export type Encounter = {

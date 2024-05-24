@@ -18,6 +18,7 @@ export default async function page() {
 
   const monsterCollection = db.collection("monsters");
   const playerCollection = db.collection("players");
+  const encounterCollection = db.collection("encounters");
 
   // monsterRes & playerRes to eventually be phased out by Encounter fetching
   const monsterRes = await monsterCollection.find({}).limit(50).toArray();
@@ -25,6 +26,10 @@ export default async function page() {
 
   const monsterData: Monster[] = JSON.parse(JSON.stringify(monsterRes));
   const playerData: Player[] = JSON.parse(JSON.stringify(playerRes));
+
+  const encounterRes = await encounterCollection.findOne({});
+  const encounterData = JSON.parse(JSON.stringify(encounterRes));
+  console.log(encounterData);
 
   return (
     <InitiaizeState monsterData={monsterData} playerData={playerData}>

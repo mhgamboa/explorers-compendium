@@ -34,8 +34,6 @@ function MonsterDisplay() {
     challenge,
     traits,
     actions,
-    reactions,
-    legendaryActions,
   } = combatant;
 
   return (
@@ -148,62 +146,39 @@ function MonsterDisplay() {
       {/* traits */}
       <div className="space-y-1 whitespace-pre-wrap py-2">
         {traits.map((t) => {
+          console.log(t);
           return (
             <div key={t.name}>
-              <span className="font-semibold italic">{t.name}</span> {t.content}
+              <span className="font-semibold italic">{t.name}.</span>{" "}
+              {t.description}
             </div>
           );
         })}
       </div>
       {/* actions */}
-      <div id="actions" className="py-2">
-        <h3 className="text-2xl font-light text-red-900">Actions</h3>
-        <hr className="border-black" />
-        {actions.map((a) => {
-          const regexp = /(\(\d{1,2}d\d{1,3}(?:\s[\+\-]\s\d{1,2})?\))/m;
-          return (
-            <div className="pt-4" key={a.name}>
-              <span className="font-semibold italic">{a.name}. </span>
-              {reactStringReplace(a.content, regexp, (match, i) => {
-                const input = match.slice(1, -1).replace(/\s/g, "");
-                return <RollDiceButton key={i} input={input} />;
+      {actions.map((a, i) => {
+        return (
+          <div id="actions" className="py-2" key={a.title}>
+            <h3 className="text-2xl font-light text-red-900">{a.title}</h3>
+            <hr className="border-black" />
+            <div className="pt-4">
+              {a.content.map((d, i) => {
+                return (
+                  <React.Fragment key={i}>
+                    <div>
+                      {d.name && (
+                        <span className="font-semibold italic">{d.name}. </span>
+                      )}
+                      {d.description}
+                    </div>
+                    <br />
+                  </React.Fragment>
+                );
               })}
             </div>
-          );
-        })}
-      </div>
-      {/* reactions */}
-      {reactions.length > 0 && (
-        <div id="actions" className="py-2">
-          <h3 className="text-2xl font-light text-red-900">Reactions</h3>
-          <hr className="border-black" />
-          {reactions.map((a) => {
-            return (
-              <div className="pt-4" key={a.name}>
-                <span className="font-semibold italic">{a.name}. </span>{" "}
-                {a.content}
-              </div>
-            );
-          })}
-        </div>
-      )}
-      {/* legendary actions */}
-      {legendaryActions.length > 0 && (
-        <div id="actions" className="py-2">
-          <h3 className="text-2xl font-light text-red-900">
-            Legendary Actions
-          </h3>
-          <hr className="border-black" />
-          {legendaryActions.map((a) => {
-            return (
-              <div className="pt-4" key={a.name}>
-                <span className="font-semibold italic">{a.name}. </span>{" "}
-                {a.content}
-              </div>
-            );
-          })}
-        </div>
-      )}
+          </div>
+        );
+      })}
     </>
   );
 }
