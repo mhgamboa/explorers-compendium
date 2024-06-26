@@ -1,3 +1,13 @@
+import useEncounter_Stats from "@/hooks/combat/useEncounter_Stats";
+
+export type View =
+  | "main"
+  | "initiative"
+  | "damage"
+  | "savingThrow"
+  | "roll"
+  | "condition";
+
 export const conditions = [
   "",
   "Blinded",
@@ -17,6 +27,40 @@ export const conditions = [
   "Exhaustion",
 ] as const;
 export type Condition = (typeof conditions)[number];
+
+export type Encounter_Stats = ReturnType<typeof useEncounter_Stats>;
+
+export type Damage = { damage: number; id: number; name: string }[];
+
+export type Saves = {
+  name: string;
+  modifier: number;
+}[];
+export type Skills = {
+  name: string;
+  modifier: number;
+}[];
+
+export type Traits = {
+  name: string;
+  description: string;
+}[];
+
+export type Actions = {
+  title: string;
+  content: { name: string; description: string }[];
+}[];
+
+export type SavingThrowRollType = "Adv" | "Dis" | "Norm";
+export type SavingThrowDamage = "Full" | "Half" | "Quarter" | "None";
+
+export type SavingThrows = {
+  roll1: number;
+  roll2: number;
+  rolling: boolean;
+  rollType: SavingThrowRollType;
+  damageAmount: SavingThrowDamage;
+}[];
 
 export type Player = {
   characterName: string;
@@ -81,21 +125,6 @@ export type Monster = {
   user_Id?: { $oid: string };
 };
 
-// export type Encounter = {
-//   monsters: {
-//     combatant: Monster;
-//     rolledInitiative: number;
-//     currentHp: number;
-//     status: string[];
-//   }[];
-//   players: {
-//     combatant: Player;
-//     rolledInitiative: number;
-//     currentHp: number;
-//     status: string[];
-//   }[];
-// };
-
 export type Encounter = {
   combatant: Monster | Player;
   type: "player" | "monster";
@@ -111,19 +140,3 @@ export function isMonster(combatant: Monster | Player): combatant is Monster {
 export function isPlayer(combatant: Monster | Player): combatant is Player {
   return (combatant as Player).hasOwnProperty("characterName"); // Replace 'playerProperty' with an actual property of Player
 }
-
-export type SavingThrowRollType = "Adv" | "Dis" | "Norm";
-export type SavingThrowDamage = "Full" | "Half" | "Quarter" | "None";
-
-export type SavingThrows = {
-  roll1: number;
-  roll2: number;
-  rolling: boolean;
-  rollType: SavingThrowRollType;
-  damageAmount: SavingThrowDamage;
-}[];
-
-/* 
-Roll 1
-Roll 2
-*/

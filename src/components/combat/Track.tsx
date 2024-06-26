@@ -1,12 +1,13 @@
 "use client";
 import React, { useRef, useEffect, useCallback } from "react";
-import { useCombatStore } from "@/store/combatStore";
-import { isMonster, isPlayer } from "@/types/combatTypes";
+import { useEncounterContext } from "@/context/combat/EncounterContext";
+import { useIndexContext } from "@/context/combat/IndexContext";
 
 export default function Track() {
-  const combatants = useCombatStore((state) => state.combatants);
-  const setIndex = useCombatStore((state) => state.setIndex);
-  const index = useCombatStore((state) => state.index);
+  const { index, setIndex } = useIndexContext();
+  const {
+    encounter: { encounter_stats },
+  } = useEncounterContext();
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -38,23 +39,25 @@ export default function Track() {
     };
   }, [handleWheelScroll]);
 
-  if (!combatants) return;
   return (
     <div
       className="no-scrollbar flex w-full space-x-2 overflow-scroll py-2"
       ref={containerRef}
     >
-      {combatants.map((c, i) => {
+      {encounter_stats.map((c, i) => {
         return (
           <div
-            key={i}
+            key={c.id}
             className={`flex h-20 w-full min-w-48 cursor-pointer flex-col items-center justify-center rounded border-2 border-black px-2 text-center ${
               i === index && "border-red-700 shadow shadow-indigo-950"
             }`}
             onClick={() => setIndex(i)}
           >
-            {isMonster(c.combatant) && c.combatant.name}
-            {isPlayer(c.combatant) && c.combatant.characterName}
+            {c.monsters
+              ? c.monsters.name
+              : c.players!.character_name
+                ? c.players!.character_name
+                : `Player ${c.players!.id}`}
           </div>
         );
       })}

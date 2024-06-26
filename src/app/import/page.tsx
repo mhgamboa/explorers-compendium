@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import MonsterCard from "@/components/monster/MonsterCard";
-import { Monster } from "@/types/combatTypes";
+import { Monster } from "@/types/combat";
 import parse from "@/lib/import/_parse";
 import MonsterStats from "@/components/monster/MonsterStats";
 
@@ -9,7 +9,6 @@ export default function Page() {
   const [monster, setMonster] = useState<Monster | null>(null);
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMonster(parse(e.target.value));
-    // parse(e.target.value);
   };
   return (
     <main className="grid grid-cols-1 gap-x-2 gap-y-5 p-3 lg:grid-cols-2">

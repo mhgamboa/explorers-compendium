@@ -1,6 +1,6 @@
 import React, { MouseEvent } from "react";
 import { useCombatStore } from "@/store/combatStore";
-import { SavingThrowRollType } from "@/types/combatTypes";
+import { SavingThrowRollType } from "@/types/combat";
 
 const advArr: SavingThrowRollType[] = ["Dis", "Norm", "Adv"];
 

@@ -1,29 +1,32 @@
 import React from "react";
 import { rollDice } from "@/utils/combat/rollDice";
-import { isMonster } from "@/types/combatTypes";
-import { useCombatStore } from "@/store/combatStore";
+import { isMonster } from "@/types/combat";
+import { useEncounterContext } from "@/context/combat/EncounterContext";
+import { useSyncInitiativeContext } from "@/context/combat/initiative/SyncInitiativeContext";
+import useEncounter_Stats from "@/hooks/combat/useEncounter_Stats";
+import { useInitiativeContext } from "@/context/combat/initiative/InitiativeContext";
 
 function Heading() {
-  const combatants = useCombatStore((state) => state.combatants);
-  const setCombatants = useCombatStore((state) => state.setCombatants);
-  const setInitiativeArray = useCombatStore((s) => s.setInitiativeArray);
-
-  const syncInitiative = useCombatStore((state) => state.syncInitiative);
-  const toggleSyncInitiative = useCombatStore((s) => s.toggleSyncInitiative);
+  const encounter_stats = useEncounter_Stats();
+  const { syncInitiative, setSyncInitiative } = useSyncInitiativeContext();
+  const { setInitiativeArray } = useInitiativeContext();
 
   const rollInitiative = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     e.preventDefault();
     const rolledInitiative = rollDice(20);
-    const arr = combatants.map((c) => {
-      if (!isMonster(c.combatant)) return c.rolledInitiative;
 
-      return syncInitiative ? rolledInitiative : rollDice(20);
+    const newInitiative = encounter_stats.map((c, i) => {
+      if (c.players) return c;
+      return {
+        ...c,
+        rolled_initiative: syncInitiative ? rolledInitiative : rollDice(20),
+      };
     });
-
-    setInitiativeArray(arr);
+    setInitiativeArray(newInitiative);
   };
+
   return (
     <div className="flex justify-between border-b-2 py-2">
       <div className="flex items-center">
@@ -32,7 +35,7 @@ function Heading() {
           name="syncMonsters"
           id="syncMonsters"
           checked={syncInitiative}
-          onChange={toggleSyncInitiative}
+          onChange={() => setSyncInitiative(!syncInitiative)}
         />
         <label htmlFor="syncMonsters" className="pl-1">
           Sync All Monsters

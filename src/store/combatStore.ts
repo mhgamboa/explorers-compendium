@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Encounter, SavingThrows, Condition } from "@/types/combatTypes";
+import { Encounter, SavingThrows, Condition } from "@/types/combat";
 
 export type View =
   | "main"

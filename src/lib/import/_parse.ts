@@ -1,4 +1,4 @@
-import { Monster } from "@/types/combatTypes";
+import { Monster } from "@/types/combat";
 import parseAC from "./parseAC";
 import parseHP from "./parseHP";
 import parseSpeed from "./parseSpeed";

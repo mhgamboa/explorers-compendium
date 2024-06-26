@@ -1,50 +1,50 @@
 import React from "react";
-import { useCombatStore } from "@/store/combatStore";
-import { Player } from "@/types/combatTypes";
 import TriangleDivider from "@/components/ui/TriangleDivider";
+import useCurrentCombatant from "@/hooks/combat/useCurrentCombatant";
 
 export default function PlayerDisplay() {
-  const combatants = useCombatStore((state) => state.combatants);
-  const index = useCombatStore((state) => state.index);
-  const player = combatants[index].combatant as Player;
+  const currentCombatant = useCurrentCombatant();
 
-  const { characterName, ac, level, passivePerception, playerName, totalHp } =
-    player;
+  const {
+    ac,
+    character_name,
+    level,
+    player_name,
+    total_hp,
+    class: playerClass,
+    passive_perception,
+    id,
+  } = currentCombatant.players!;
+
   return (
     <div className="flex flex-col gap-2 p-2 text-red-900">
       <div>
         <span className="mr-3 pb-2 text-2xl font-bold text-red-900">
-          {characterName}
+          {character_name || `Player ${id}`}
         </span>
-        <span className="text-xs text-gray-400">({playerName})</span>
+        <span className="text-xs text-gray-400">
+          {player_name && `${player_name}`}
+        </span>
       </div>
       <TriangleDivider />
-      {level && (
-        <div id="hp">
-          <span className="font-bold">Level</span> {level}
-        </div>
-      )}
-      {ac && (
-        <div id="ac">
-          <span className="font-bold">Armor Class</span> {ac}
-        </div>
-      )}
-      {totalHp && (
-        <div id="hp">
-          <span className="font-bold">Total Health Points</span> {totalHp}
-        </div>
-      )}
-      {player.class && (
-        <div id="class">
-          <span className="font-bold">Character Class</span> {player.class}
-        </div>
-      )}
-      {passivePerception && (
-        <div id="class">
-          <span className="font-bold">Passive Perception</span>{" "}
-          {passivePerception}
-        </div>
-      )}
+      <div id="hp">
+        <span className="font-bold">Level</span> {level || "N/A"}
+      </div>
+      <div id="ac">
+        <span className="font-bold">Armor Class</span> {ac || "N/A"}
+      </div>
+      <div id="hp">
+        <span className="font-bold">Total Health Points</span>{" "}
+        {total_hp || "N/A"}
+      </div>
+      <div id="class">
+        <span className="font-bold">Character Class</span>{" "}
+        {playerClass || "N/A"}
+      </div>
+      <div id="class">
+        <span className="font-bold">Passive Perception</span>{" "}
+        {passive_perception || "N/A"}
+      </div>
     </div>
   );
 }

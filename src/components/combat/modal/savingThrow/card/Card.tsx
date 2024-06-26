@@ -1,7 +1,7 @@
 import React, { MouseEvent } from "react";
 import calculateModifier from "@/utils/monster/calculateAbilityScore";
 import { useCombatStore } from "@/store/combatStore";
-import { Monster } from "@/types/combatTypes";
+import { Monster } from "@/types/combat";
 import RollInputs from "./RollInputs";
 import AdvantageButtons from "./AdvantageButtons";
 import DamageButtons from "./DamageButtons";

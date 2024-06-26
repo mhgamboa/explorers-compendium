@@ -3,7 +3,7 @@ import React from "react";
 
 const hotkeyData = [
   { view: "Initiative", hotkey: "i" },
-  { view: "Saving Throw", hotkey: "s" },
+  // { view: "Saving Throw", hotkey: "s" },
   { view: "Damage", hotkey: "d" },
   { view: "Exit Any View", hotkey: "esc" },
   { view: "Roll Dice", hotkey: "Any Number" },

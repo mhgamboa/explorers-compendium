@@ -1,4 +1,4 @@
-import { SavingThrowRollType } from "@/types/combatTypes";
+import { SavingThrowRollType } from "@/types/combat";
 
 const determinRoll = (
   roll1: number,

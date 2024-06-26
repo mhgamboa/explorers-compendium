@@ -3,7 +3,7 @@ import { useCombatStore } from "@/store/combatStore";
 import calculateDamage from "@/utils/combat/savingThrow/calculateDamage";
 import calculateModifier from "@/utils/monster/calculateAbilityScore";
 import resetSavingThrows from "@/utils/combat/savingThrow/resetSavingThrows";
-import { Condition, isPlayer } from "@/types/combatTypes";
+import { Condition, isPlayer } from "@/types/combat";
 import determineRoll from "@/utils/combat/savingThrow/determineRoll";
 
 export default function Foot() {

@@ -1,9 +1,5 @@
-import React from "react";
-import clientPromise from "@/lib/mongodb";
+"use client";
 
-import { Monster, Player } from "@/types/combatTypes";
-
-import InitiaizeState from "@/components/combat/InitializeState";
 import InitiativeModal from "@/components/combat/modal/initiative/InitiativeModal";
 import Track from "@/components/combat/Track";
 import CurrentMonster from "@/components/combat/currentMonster/CurrentMonster";
@@ -11,39 +7,73 @@ import SavingThrowModal from "@/components/combat/modal/savingThrow/SavingThrowM
 import DamageModal from "@/components/combat/modal/damage/DamageModal";
 import HotKeysTable from "@/components/combat/HotKeysTable";
 import RollModal from "@/components/combat/modal/roll/RollModal";
+// import useHandleKeyUp from "@/hooks/combat/useHandleKeyup2";
+import { InitiativeContextContextProvider } from "@/context/combat/initiative/InitiativeContext";
+import { SyncInitiativeContextProvider } from "@/context/combat/initiative/SyncInitiativeContext";
+import { useViewContext } from "@/context/combat/ViewContext";
+import { useMainFocusedContext } from "@/context/combat/MainFocusedContext";
+import { useRollContext } from "@/context/combat/RollContext";
+import { useEffect } from "react";
+import { DamageContextProvider } from "@/context/combat/DamageContext";
 
-export default async function page() {
-  const client = await clientPromise;
-  const db = client.db("5e");
+export default function Page() {
+  const { view, setView } = useViewContext();
+  const { mainFocused } = useMainFocusedContext();
+  const { setRollInput } = useRollContext();
 
-  const monsterCollection = db.collection("monsters");
-  const playerCollection = db.collection("players");
-  const encounterCollection = db.collection("encounters");
+  useEffect(() => {
+    const handleKeyUp = (e: KeyboardEvent) => {
+      e.preventDefault();
+      if (view === "main") {
+        const isNumber = !isNaN(+e.key);
+        if (e.key === "i" || e.key === "I") setView("initiative");
+        if (e.key === "s" || e.key === "S") setView("savingThrow");
+        if (e.key === "d" || e.key === "D") setView("damage");
+        if (isNumber && +e.key > 0 && !mainFocused) {
+          setView("roll");
+          setRollInput(e.key);
+        }
+      }
+      if (view === "roll") {
+      }
 
-  // monsterRes & playerRes to eventually be phased out by Encounter fetching
-  const monsterRes = await monsterCollection.find({}).limit(50).toArray();
-  const playerRes = await playerCollection.find({}).limit(50).toArray();
+      //   if (e.key === "Enter") {
+      //   }
+      // }
+      // if (view === "condition") {
+      // }
+      // if (view === "roll") {
+      // }
+      // if (view === "savingThrow") {
+      // }
+    };
 
-  const monsterData: Monster[] = JSON.parse(JSON.stringify(monsterRes));
-  const playerData: Player[] = JSON.parse(JSON.stringify(playerRes));
-
-  const encounterRes = await encounterCollection.findOne({});
-  const encounterData = JSON.parse(JSON.stringify(encounterRes));
-  console.log(encounterData);
-
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [view, setView, mainFocused, setRollInput]);
   return (
-    <InitiaizeState monsterData={monsterData} playerData={playerData}>
-      <div className="w-full">
+    <div className="w-full">
+      <>
         <>
-          <InitiativeModal />
-          <SavingThrowModal />
-          <RollModal />
-          <DamageModal />
+          <InitiativeContextContextProvider>
+            <SyncInitiativeContextProvider>
+              <InitiativeModal />
+            </SyncInitiativeContextProvider>
+          </InitiativeContextContextProvider>
         </>
-        <Track />
-        <CurrentMonster />
-        <HotKeysTable />
-      </div>
-    </InitiaizeState>
+        {/* <SavingThrowModal /> */}
+        <RollModal />
+        <>
+          <DamageContextProvider>
+            <DamageModal />
+          </DamageContextProvider>
+        </>
+      </>
+      <Track />
+      <CurrentMonster />
+      <HotKeysTable />
+    </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import TriangleDivider from "@/components/ui/TriangleDivider";
 import calculateModifier from "@/utils/monster/calculateAbilityScore";
 import calculateXP from "@/utils/monster/calculateXP";
-import { Monster } from "@/types/combatTypes";
+import { Monster } from "@/types/combat";
 
 type Props = {
   monster: Monster;

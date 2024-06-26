@@ -1,6 +1,6 @@
 import React from "react";
 import { useCombatStore } from "@/store/combatStore";
-import { SavingThrowDamage } from "@/types/combatTypes";
+import { SavingThrowDamage } from "@/types/combat";
 
 const damageArr: SavingThrowDamage[] = ["None", "Quarter", "Half", "Full"];
 

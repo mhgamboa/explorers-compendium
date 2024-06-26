@@ -1,4 +1,4 @@
-import { SavingThrowDamage } from "@/types/combatTypes";
+import { SavingThrowDamage } from "@/types/combat";
 
 const calculateDamage = (
   result: "Pass" | "Fail",
