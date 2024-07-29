@@ -1,18 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
-import Form from "@/components/login/Form";
+import Form from "./Form";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
-  const supabase = createClient();
+  // const supabase = createClient();
 
-  const { data, error } = await supabase.auth.getUser();
+  // const { data, error } = await supabase.auth.getUser();
   // if (data.user) redirect("/");
-  if (error) redirect("/error");
+  // if (error) console.error("error message:", error.message);
+  // if (error) console.error("error code:", error.code);
+  // if (
+  //   error &&
+  //   error.message !== "Auth session missing!" &&
+  //   error.message !== "Session from session_id claim in JWT does not exist"
+  // )
+  //   if (data) console.log("data", data);
+  // redirect("/error");
   return (
     <main className="p- flex min-h-screen w-full flex-col items-center justify-center px-4">
-      <p>Hello {data.user.email}</p>
       <div className="w-full max-w-sm space-y-5 text-gray-600">
         <div className="pb-8 text-center">
           <Link href="/">

@@ -1,21 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React, { useActionState, useEffect } from "react";
 import login from "@/app/login/actions";
+import { useFormState, useFormStatus } from "react-dom";
+
+const initialState = {
+  message: "",
+};
 
 export default function Form() {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [error, action] = useFormState(login, initialState);
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
 
-  const [loading, setLoading] = useState(false);
   return (
-    <form action={login} className="space-y-5">
+    <form action={action} className="space-y-5">
+      {error.message && (
+        <div className="text-center text-red-500">{error.message}</div>
+      )}
       <div>
         <label className="font-medium">Email</label>
         <input
           name="email"
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          // value={email}
+          // onChange={(e) => setEmail(e.target.value)}
           required
           className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
         />
@@ -26,8 +35,9 @@ export default function Form() {
         <input
           name="password"
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          // value={password}
+          minLength={8}
+          // onChange={(e) => setPassword(e.target.value)}
           required
           className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
         />
@@ -53,12 +63,19 @@ export default function Form() {
           Forgot password?
         </a>
       </div>
-      <button
-        disabled={loading}
-        className="w-full rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white duration-150 hover:bg-indigo-500 active:bg-indigo-600 disabled:cursor-not-allowed disabled:bg-gray-500"
-      >
-        Sign in
-      </button>
+      <SubmitButton />
     </form>
   );
 }
+
+const SubmitButton = () => {
+  const { pending } = useFormStatus();
+  return (
+    <button
+      disabled={pending}
+      className="w-full rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white duration-150 hover:bg-indigo-500 active:bg-indigo-600 disabled:cursor-not-allowed disabled:bg-gray-500"
+    >
+      Sign in
+    </button>
+  );
+};

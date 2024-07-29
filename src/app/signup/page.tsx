@@ -3,15 +3,15 @@ import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 
 import { redirect } from "next/navigation";
-import Form from "@/components/signup/Form";
+import Form from "./Form";
 
 export default async function Page() {
-  const supabase = createClient();
+  // const supabase = createClient();
 
-  const { data, error } = await supabase.auth.getUser();
-  if (data.user) redirect("/");
-  if (error) redirect("/error");
-
+  // const { data, error } = await supabase.auth.getUser();
+  // console.log(data.user);
+  // if (data.user) redirect("/");
+  // if (error && error.message !== "Auth session missing!") redirect("/error");
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center px-4">
       <div className="w-full max-w-sm text-gray-600">

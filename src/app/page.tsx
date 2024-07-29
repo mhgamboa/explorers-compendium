@@ -10,7 +10,7 @@ import Nav from "@/components/nav/Nav";
 export default function Page() {
   return (
     <>
-      {/* <Nav /> */}
+      <Nav />
       <main>
         <Hero />
         <Features />

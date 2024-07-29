@@ -8,6 +8,7 @@ export default function ProfileDropDown() {
   const [state, setState] = useState(false);
   const profileRef = useRef<HTMLButtonElement>(null);
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const navigation = [
     { title: "Dashboard", path: "#" },
@@ -18,6 +19,7 @@ export default function ProfileDropDown() {
     const getUser = async () => {
       const { data, error } = await createClient().auth.getUser();
       setUser(data.user);
+      setLoading(false);
     };
     getUser();
   }, []);
@@ -37,7 +39,8 @@ export default function ProfileDropDown() {
 
   return (
     <div className="relative z-40 mt-5 pt-5 lg:mt-0 lg:block">
-      {user ? "logged in" : "not logged in"}
+      {/* {user ? "logged in" : "not logged in"} */}
+      {loading ? "loading..." : user ? "logged in" : "not logged in"}
       <div className="flex items-center space-x-4">
         <button
           ref={profileRef}

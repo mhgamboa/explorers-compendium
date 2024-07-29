@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
@@ -12,8 +12,6 @@ const schema = z.object({
 });
 
 export default async function signup(email: string, password: string) {
-  console.log("password", password);
-  console.log("email", email);
   const supabase = createClient();
 
   try {
@@ -32,7 +30,6 @@ export default async function signup(email: string, password: string) {
     console.log(error);
     return { error: "Unknown error" };
   } finally {
-    // Uncomment the following lines if needed
     // revalidatePath("/", "layout");
     redirect("/");
   }
